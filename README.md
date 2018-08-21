@@ -6,6 +6,10 @@
 
 ## Features
 
+* Simple, text-based token replacement for most Sitecore fields
+* Token management in content tree (admin-only & multi-tenant)
+* Configurable token format
+
 ## Requirements
 
 * .NET 4.6.1 or greater
@@ -37,4 +41,4 @@ For questions / comments / issues, contact me:
  
 ## License
 
-MIT License. See accompanying "License.txt" file.
+MIT License. See accompanying LICENSE.TXT file.

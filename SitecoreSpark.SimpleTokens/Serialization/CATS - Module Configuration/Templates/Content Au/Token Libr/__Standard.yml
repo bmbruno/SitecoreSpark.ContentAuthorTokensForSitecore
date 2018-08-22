@@ -1,0 +1,29 @@
+﻿---
+ID: "189dd216-a834-40d7-964d-21183c45432c"
+Parent: "beee1586-d37f-4637-9798-0dffa496e0fb"
+Template: "beee1586-d37f-4637-9798-0dffa496e0fb"
+Path: /sitecore/templates/Content Author Tokens/Token Library/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {91883B15-4F51-4219-9E71-47F90DFC1179}
+    {BEEE1586-D37F-4637-9798-0DFFA496E0FB}
+- ID: "a0cb3965-8884-4c7a-8815-b6b2e5ced162"
+  Hint: __Editors
+  Type: TreelistEx
+  Value: "{A0C460F4-DBAE-4A5A-8F3A-C4ADFCDACEEA}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180822T141136Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

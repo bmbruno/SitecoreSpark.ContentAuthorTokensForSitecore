@@ -1,0 +1,18 @@
+﻿---
+ID: "b5ad5377-d589-486f-8712-30d3aaf2248b"
+Parent: "08477468-d438-43d4-9d6a-6d84a611971c"
+Template: "78abb615-9c8b-48e0-906c-cd0d141bc379"
+Path: /sitecore/system/Modules/Content Author Tokens
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180822T145614Z
+    - ID: "f6453f66-9e44-40d6-beef-8e1acc13238a"
+      Hint: Libraries
+      Type: Treelist
+      Value: 

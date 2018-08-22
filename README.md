@@ -9,8 +9,12 @@
 * TODO: Simple, text-based token replacement for most Sitecore fields
 * TODO: Token management in content tree (admin-only & multi-tenant)
 * TODO: Configurable token format
-* TODO: Custom administration page for managing token cache (or use built-in cache page?)
+* TODO: Built-in cache
 * TODO: Optional compatibility with Glass Mapper
+
+* TODO: Sitecore init: build cache
+* TODO: After Publish: build cache?
+* TODO: Admin page: reset cache?
 
 * REFERENCE: https://sitecorerunner.com/2018/08/21/adding-rte-richtext-custom-dropdown-list-in-sitecore-9/
 

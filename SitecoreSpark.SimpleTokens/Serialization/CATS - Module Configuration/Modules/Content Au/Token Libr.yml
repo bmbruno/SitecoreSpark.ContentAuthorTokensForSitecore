@@ -1,0 +1,14 @@
+﻿---
+ID: "4cb657fa-94cd-4ff1-8b80-e84ceae189b5"
+Parent: "b5ad5377-d589-486f-8712-30d3aaf2248b"
+Template: "beee1586-d37f-4637-9798-0dffa496e0fb"
+Path: /sitecore/system/Modules/Content Author Tokens/Token Library
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180822T202808Z

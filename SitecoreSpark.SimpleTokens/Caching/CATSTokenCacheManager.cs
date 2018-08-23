@@ -14,12 +14,19 @@ namespace SitecoreSpark.CATS.Caching
     {
         private static CATSTokenCache _tokenCache;
 
+        private static long _cacheMaxSize
+        {
+            get
+            {
+                return Sitecore.StringUtil.ParseSizeString(Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.CacheSize"));
+            }
+        }
+
         static CATSTokenCacheManager()
         {
             if (_tokenCache == null)
             {
-                var cacheSize = Sitecore.StringUtil.ParseSizeString(Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.CacheSize"));
-                _tokenCache = new CATSTokenCache("CATS_TokenCache", cacheSize);
+                _tokenCache = new CATSTokenCache("CATS_TokenCache", _cacheMaxSize);
             }
         }
 
@@ -57,14 +64,19 @@ namespace SitecoreSpark.CATS.Caching
             // Get tokens from all libraries
             IEnumerable<CATS.Models.Token> tokens = TokenManager.GetTokensFromLibraries(libraries);
 
+            bool cacheOverflow = false;
             foreach (CATS.Models.Token token in tokens)
             {
                 _tokenCache.SetString(token.Pattern, token.Value);
+
+                if (_tokenCache.InnerCache.Size >= _cacheMaxSize)
+                    cacheOverflow = true; 
             }
 
-            // TODO: (maybe?) check token cache size; if larger than allowed max, throw an exception
+            if (cacheOverflow)
+                Logger.Info($"Max cache size exceeded. This may cause page rendering performance problems. If possible, increase the size of 'SitecoreSpark.CATS.CacheSize'. Size/Max: {_tokenCache.InnerCache.Size}/{_cacheMaxSize}", typeof(CATSTokenCacheManager));
 
-            Sitecore.Diagnostics.Log.Info($"[CATS] Content author tokens cache rebuilt. '{tokens.Count()}' tokens cached.", tokens);
+            Logger.Info($"Content author tokens cache rebuilt. '{tokens.Count()}' tokens cached.", typeof(CATSTokenCacheManager));
         }
 
         /// <summary>

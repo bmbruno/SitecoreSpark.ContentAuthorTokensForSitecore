@@ -15,6 +15,7 @@
 * TODO: Sitecore init: build cache
 * TODO: After Publish: build cache?
 * TODO: Admin page: reset cache?
+* TODO: Validation to confirm that tokens are unique
 
 * REFERENCE: https://sitecorerunner.com/2018/08/21/adding-rte-richtext-custom-dropdown-list-in-sitecore-9/
 

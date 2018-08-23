@@ -16,7 +16,7 @@ Languages:
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Pattern to be interpreted for replacement.
+    Value: Pattern to be interpreted for replacement
   Versions:
   - Version: 1
     Fields:

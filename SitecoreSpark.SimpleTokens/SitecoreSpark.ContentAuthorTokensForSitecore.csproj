@@ -138,6 +138,8 @@
     <Compile Include="Caching\CATSTokenCache.cs" />
     <Compile Include="Caching\CATSTokenCacheManager.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Processors\Pipelines\Initialize\InitCATS.cs" />
+    <Compile Include="Processors\Pipelines\Publish\RebuildTokenCache.cs" />
     <Compile Include="Processors\Pipelines\RenderField\TokenReplacer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

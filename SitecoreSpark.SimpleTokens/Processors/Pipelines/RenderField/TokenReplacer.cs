@@ -19,7 +19,7 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
             if (Sitecore.Context.PageMode.IsExperienceEditor)
                 return;
 
-            Caching.CATSTokenCacheManager.SetCache($"MyKey_32", $"Laura_32");
+            Caching.CATSTokenCacheManager.BuildCache();
 
             // TODO: Replace token
             if (args.FieldValue.Contains("{{") && args.FieldValue.Contains("}}"))

@@ -42,6 +42,15 @@ namespace SitecoreSpark.CATS.Caching
             return string.Empty;
         }
 
+        /// <summary>
+        /// Gets an array of all keys in the cache.
+        /// </summary>
+        /// <returns>String array of cache keys.</returns>
+        public static string[] GetKeys()
+        {
+            return _tokenCache.InnerCache.GetCacheKeys();
+        }
+
         public static void SetCache(string key, string value)
         {
             // TODO: handle cache overflow possibility?
@@ -55,14 +64,20 @@ namespace SitecoreSpark.CATS.Caching
         /// </summary>
         public static void BuildCache()
         {
-            if (_tokenCache.InnerCache.Count > 0)
+            if (!IsCacheEmpty())
                 ClearCache();
+
+            // TODO: cache token delimiters?
+            _tokenCache.SetString("CATS_TOKEN_START_TAG", Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.StartTag"));
+            _tokenCache.SetString("CATS_TOKEN_END_TAG", Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.EndTag"));
 
             // Get token library items from Sitecore
             IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
 
             // Get tokens from all libraries
             IEnumerable<CATS.Models.Token> tokens = TokenManager.GetTokensFromLibraries(libraries);
+
+            // TODO: sanitize tokens inbound?
 
             bool cacheOverflow = false;
             foreach (CATS.Models.Token token in tokens)
@@ -86,6 +101,15 @@ namespace SitecoreSpark.CATS.Caching
         {
             if (_tokenCache != null)
                 _tokenCache.Clear();
+        }
+
+        /// <summary>
+        /// Determines if the token cache is empty.
+        /// </summary>
+        /// <returns>True/false.</returns>
+        public static bool IsCacheEmpty()
+        {
+            return (_tokenCache.InnerCache.Count == 0);
         }
     }
 }

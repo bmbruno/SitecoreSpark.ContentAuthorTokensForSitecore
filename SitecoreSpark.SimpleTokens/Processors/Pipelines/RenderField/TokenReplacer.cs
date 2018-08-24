@@ -3,13 +3,11 @@ using Sitecore.Pipelines.RenderField;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
 {
-
-    // Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.SPRK.LogFolder")
-
     public class TokenReplacer
     {
         public void Process(RenderFieldArgs args)
@@ -19,14 +17,34 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
             if (Sitecore.Context.PageMode.IsExperienceEditor)
                 return;
 
-            Caching.CATSTokenCacheManager.BuildCache();
+            // TODO: only operate on text, rich text fields (TODO: see all possible values of args.FieldTypeKey)
+
+            // Set up metadata
+            string startTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_START_TAG");
+            string endTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_END_TAG");
+
+            // TODO: design a better algorithm
+            // NOTE: option 1) iterate over all cached keys and replace
+            // NOTE: option 2) check if tokens exist in content, if so, grab cache by key
+            string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
 
             // TODO: Replace token
             if (args.FieldValue.Contains("{{") && args.FieldValue.Contains("}}"))
             {
-                args.Result.FirstPart = args.FieldValue.Replace("{{MyKey_32}}", Caching.CATSTokenCacheManager.GetCache("MyKey_32"));
-                args.Result.FirstPart = args.Result.FirstPart.Replace("{{MyKey_64}}", Caching.CATSTokenCacheManager.GetCache("MyKey_64"));
-                args.Result.FirstPart = args.Result.FirstPart.Replace("{{MyKey_128}}", Caching.CATSTokenCacheManager.GetCache("MyKey_128"));
+                StringBuilder result = new StringBuilder(args.FieldValue);
+
+                string pattern = string.Empty;
+
+                // Iterate over cached tokens, check for replacements
+                foreach (string key in allKeys)
+                {
+                    pattern = $"{startTag}{key}{endTag}";
+
+                    string newValue = Caching.CATSTokenCacheManager.GetCache(key);
+                    result.Replace(pattern, newValue);
+                }
+
+                args.Result.FirstPart = result.ToString();
             }
         }
     }

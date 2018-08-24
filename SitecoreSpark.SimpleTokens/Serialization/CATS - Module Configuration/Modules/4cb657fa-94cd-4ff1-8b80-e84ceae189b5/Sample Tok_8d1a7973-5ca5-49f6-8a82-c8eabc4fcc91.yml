@@ -1,8 +1,8 @@
 ﻿---
-ID: "ad9df27b-fb32-4a16-bb9d-e46ba4e78a7c"
+ID: "8d1a7973-5ca5-49f6-8a82-c8eabc4fcc91"
 Parent: "4cb657fa-94cd-4ff1-8b80-e84ceae189b5"
 Template: "91883b15-4f51-4219-9e71-47f90dfc1179"
-Path: /sitecore/system/Modules/Content Author Tokens/Token Library/Empty Token
+Path: /sitecore/system/Modules/Content Author Tokens/Token Library/Sample Token 2
 DB: master
 Languages:
 - Language: en
@@ -11,10 +11,11 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180823T163120Z
+      Value: 20180822T203634Z
     - ID: "2ef0c6d3-375d-4e45-9a4a-48fe18798faa"
       Hint: Value
-      Value: New Value for Token
+      Value: |
+        <span style="color:green;">This is another CATS token!</span>
     - ID: "c66867bc-6a83-4a9f-b3bc-efb82f7ea539"
       Hint: Pattern
-      Value: FORMERLY_EMPTY_TOKEN
+      Value: SAMPLE_TOKEN_2

@@ -27,7 +27,7 @@
 ## Requirements
 
 * .NET 4.6.1 or greater
-* Sitecore 8.2.0 or greater
+* Sitecore 8.1.1 or greater
 
 ## Getting Started
 

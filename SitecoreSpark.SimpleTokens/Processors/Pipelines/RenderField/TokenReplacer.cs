@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using SitecoreSpark.CATS.Infrastructure;
 
 namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
 {
@@ -17,34 +18,37 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
             if (Sitecore.Context.PageMode.IsExperienceEditor)
                 return;
 
-            // TODO: only operate on text, rich text fields (TODO: see all possible values of args.FieldTypeKey)
-
-            // Set up metadata
-            string startTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_START_TAG");
-            string endTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_END_TAG");
-
-            // TODO: design a better algorithm
-            // NOTE: option 1) iterate over all cached keys and replace
-            // NOTE: option 2) check if tokens exist in content, if so, grab cache by key
-            string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
-
-            // Replace token (if token-like pattern is found)c
-            if (args.FieldValue.Contains(startTag) && args.FieldValue.Contains(endTag))
+            // Only operate on certain field types
+            // TODO: how performant is this?
+            if (Constants.CATS_ValidTokenFieldTypes.Contains(args.FieldTypeKey))
             {
-                StringBuilder result = new StringBuilder(args.FieldValue);
+                // Set up metadata
+                string startTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_START_TAG");
+                string endTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_END_TAG");
 
-                string pattern = string.Empty;
+                // TODO: design a better algorithm
+                // NOTE: option 1) iterate over all cached keys and replace
+                // NOTE: option 2) check if tokens exist in content, if so, grab cache by key
+                string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
 
-                // Iterate over cached tokens, check for replacements
-                foreach (string key in allKeys)
+                // Replace token (if token-like pattern is found)c
+                if (args.FieldValue.Contains(startTag) && args.FieldValue.Contains(endTag))
                 {
-                    pattern = $"{startTag}{key}{endTag}";
+                    StringBuilder result = new StringBuilder(args.Result.FirstPart);
 
-                    string newValue = Caching.CATSTokenCacheManager.GetCache(key);
-                    result.Replace(pattern, newValue);
+                    string pattern = string.Empty;
+
+                    // Iterate over cached tokens, check for replacements
+                    foreach (string key in allKeys)
+                    {
+                        pattern = $"{startTag}{key}{endTag}";
+
+                        string newValue = Caching.CATSTokenCacheManager.GetCache(key);
+                        result.Replace(pattern, newValue);
+                    }
+
+                    args.Result.FirstPart = result.ToString();
                 }
-
-                args.Result.FirstPart = result.ToString();
             }
         }
     }

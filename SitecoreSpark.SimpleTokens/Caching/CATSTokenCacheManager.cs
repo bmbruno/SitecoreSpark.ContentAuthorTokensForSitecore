@@ -91,7 +91,7 @@ namespace SitecoreSpark.CATS.Caching
             if (cacheOverflow)
                 Logger.Info($"Max cache size exceeded. This may cause page rendering performance problems. If possible, increase the size of 'SitecoreSpark.CATS.CacheSize'. Size/Max: {_tokenCache.InnerCache.Size}/{_cacheMaxSize}", typeof(CATSTokenCacheManager));
 
-            Logger.Info($"Content author tokens cache rebuilt. '{tokens.Count()}' tokens cached.", typeof(CATSTokenCacheManager));
+            Logger.Info($"Content author tokens cache rebuilt. {tokens.Count()} tokens cached.", typeof(CATSTokenCacheManager));
         }
 
         /// <summary>

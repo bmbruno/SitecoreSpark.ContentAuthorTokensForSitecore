@@ -28,8 +28,8 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
             // NOTE: option 2) check if tokens exist in content, if so, grab cache by key
             string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
 
-            // TODO: Replace token
-            if (args.FieldValue.Contains("{{") && args.FieldValue.Contains("}}"))
+            // Replace token (if token-like pattern is found)c
+            if (args.FieldValue.Contains(startTag) && args.FieldValue.Contains(endTag))
             {
                 StringBuilder result = new StringBuilder(args.FieldValue);
 

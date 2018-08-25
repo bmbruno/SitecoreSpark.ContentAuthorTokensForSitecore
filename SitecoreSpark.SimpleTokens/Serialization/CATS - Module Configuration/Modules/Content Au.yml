@@ -15,4 +15,6 @@ Languages:
     - ID: "f6453f66-9e44-40d6-beef-8e1acc13238a"
       Hint: Libraries
       Type: Treelist
-      Value: "{CB0B82BC-A7E5-4DC1-B2A7-B642C14381A6}"
+      Value: |
+        {CB0B82BC-A7E5-4DC1-B2A7-B642C14381A6}
+        {FD332F90-DF6B-454B-AC7A-3A68D3C592E7}

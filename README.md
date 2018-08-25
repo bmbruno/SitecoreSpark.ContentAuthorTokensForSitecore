@@ -8,19 +8,20 @@
 
 ## Features
 
-* TODO: Simple, text-based token replacement for most Sitecore fields (text, rich text)
-* TODO: Token management in content tree (admin-only & multi-tenant)
-* TODO: Configurable token format
+* Simple, text-based token replacement for common Sitecore fields (single-line text, text, rich text, image, general link)
+* Token management in content tree (admin-only & multi-tenant)
+* Configurable token format
 * TODO: Built-in cache
 * TODO: Optional compatibility with Glass Mapper
 
-* TODO: Sitecore init: build cache
-* TODO: After Publish: build cache?
+// DEV NOTES:
+
+* Sitecore init: build cache
+* After Publish: build cache?
 * TODO: Admin page: reset cache + sync tokens + view cache
 * TODO: Validation to confirm that tokens are unique
-* TODO: sample all common field types and study their "FieldTypeKey"
 * TODO: button on ribbon to sync tokens?
-* TODO: use single char for token delimiter instead of strings (performance reasons)
+* TODO: use single char for token delimiter instead of strings? (performance reasons)
 
 * REFERENCE: https://sitecorerunner.com/2018/08/21/adding-rte-richtext-custom-dropdown-list-in-sitecore-9/
 

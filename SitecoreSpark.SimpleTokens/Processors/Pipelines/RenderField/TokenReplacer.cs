@@ -19,8 +19,10 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
                 return;
 
             // Only operate on certain field types
-            // TODO: how performant is this?
-            if (Constants.CATS_ValidTokenFieldTypes.Contains(args.FieldTypeKey))
+            // HashSet.Contains() is a native, highly-optimzed method; preferred over the Contains() array extension method
+            HashSet<string> validTokenFields = new HashSet<string>(Constants.CATS_ValidTokenFieldTypes);
+
+            if (validTokenFields.Contains(args.FieldTypeKey))
             {
                 // Set up metadata
                 string startTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_START_TAG");

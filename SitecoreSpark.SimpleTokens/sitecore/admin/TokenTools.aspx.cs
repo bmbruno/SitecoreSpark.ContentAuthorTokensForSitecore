@@ -36,7 +36,7 @@ namespace SitecoreSpark.CATS.sitecore.admin
             sb.Append($"Token Count: {dbTokens.Count()}\n\n");
             foreach (var token in dbTokens)
             {
-                sb.Append($"{token.Pattern}\n\n");
+                sb.Append($"{token.Pattern}\n");
             }
 
             txtDatabaseTokens.Text = sb.ToString();

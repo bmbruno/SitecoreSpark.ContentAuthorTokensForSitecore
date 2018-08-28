@@ -157,6 +157,7 @@
     <Compile Include="sitecore\admin\TokenTools.aspx.designer.cs">
       <DependentUpon>TokenTools.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Validators\NoDuplicateTokens.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

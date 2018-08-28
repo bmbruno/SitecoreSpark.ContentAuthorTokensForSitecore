@@ -61,7 +61,7 @@
                         <p>Clear and rebuild the token cache.</p>
                         <asp:Button runat="server" ID="btnRebuildCache" OnClick="btnRebuildCache_Click" Text="Rebuild Token Cache" />
 
-                        <p>Clear the token cache. This can also be done from <a href="/sitecore/admin/cache.aspx">/sitecore/admin/cache.aspx</a></p>
+                        <p>Clear the token cache. This can also be done from <a href="/sitecore/admin/cache.aspx" target="_blank">/sitecore/admin/cache.aspx</a></p>
                         <asp:Button runat="server" ID="btnClearCache" OnClick="btnClearCache_Click" Text="Clear Token Cache" />
                         <br />
 

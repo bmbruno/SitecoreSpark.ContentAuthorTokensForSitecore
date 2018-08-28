@@ -19,10 +19,7 @@ namespace SitecoreSpark.CATS.sitecore.admin
             base.OnInit(e);
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        protected void Page_Load(object sender, EventArgs e){ }
 
         protected void btnGetTokenInfo_Click(object sender, EventArgs e)
         {

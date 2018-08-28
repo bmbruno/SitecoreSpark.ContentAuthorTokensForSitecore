@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-        <title>Database Cleanup</title>
+        <title>Content Author Tokens - Admin Tools</title>
         <link rel="Stylesheet" type="text/css" href="/sitecore/shell/themes/standard/default/WebFramework.css" />
         <link rel="Stylesheet" type="text/css" href="./default.css" />
 
@@ -28,12 +28,12 @@
 
                     <asp:Label runat="server" ID="lblStatus" CssClass="status" Visible="false"></asp:Label>
 
-                    <h3>Tokens (Database vs Cache)</h3>
+                    <h2>Tokens (Database vs Cache)</h2>
                     <p>This tool lets you view all tokens defined in the Sitecore content database and tokens defined in cache. Use this to help debug issues when tokens are not being replaced during page rendering.</p>
                     
                     <asp:Button runat="server" ID="btnGetTokenInfo" OnClick="btnGetTokenInfo_Click" Text="Get Token Info" />
 
-                    <br />
+                    <br /><br />
 
                     <table style="width: 100%;">
                         <tr>
@@ -56,8 +56,9 @@
                     
                     <br /><br />
 
+                    <h2>Actions</h2>
+
                     <div>
-                        <h3>Actions</h3>
                         <p>Clear and rebuild the token cache.</p>
                         <asp:Button runat="server" ID="btnRebuildCache" OnClick="btnRebuildCache_Click" Text="Rebuild Token Cache" />
 

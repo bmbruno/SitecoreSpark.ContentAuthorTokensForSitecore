@@ -11,14 +11,15 @@
 * Simple, text-based token replacement for common Sitecore fields (single-line text, text, rich text, image, general link)
 * Token management in content tree (admin-only & multi-tenant)
 * Configurable token format
-* TODO: Built-in cache
+* Admin page: reset cache + sync tokens + view cache
+* Built-in cache
 * TODO: Optional compatibility with Glass Mapper
 
 // DEV NOTES:
 
 * Sitecore init: build cache
 * After Publish: build cache?
-* TODO: Admin page: reset cache + sync tokens + view cache
+
 * TODO: Validation to confirm that tokens are unique
 * TODO: button on ribbon to sync tokens?
 * TODO: button on ribbon to display usable tokens?

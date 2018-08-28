@@ -83,6 +83,7 @@ namespace SitecoreSpark.CATS.Infrastructure
                     {
                         tokens.Add(new Token()
                         {
+                            ItemID = token.ID.Guid,
                             Pattern = pattern,
                             Value = value
                         });

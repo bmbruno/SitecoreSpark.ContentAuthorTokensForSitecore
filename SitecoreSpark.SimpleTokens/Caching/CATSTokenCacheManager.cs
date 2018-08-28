@@ -82,7 +82,7 @@ namespace SitecoreSpark.CATS.Caching
             if (!IsCacheEmpty())
                 ClearCache();
 
-            // TODO: cache token delimiters?
+            // Cache token delimiters
             _tokenCache.SetString("CATS_TOKEN_START_TAG", Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.StartTag"));
             _tokenCache.SetString("CATS_TOKEN_END_TAG", Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.EndTag"));
 
@@ -92,11 +92,14 @@ namespace SitecoreSpark.CATS.Caching
             // Get tokens from all libraries
             IEnumerable<CATS.Models.Token> tokens = TokenManager.GetTokensFromLibraries(libraries);
 
-            // TODO: sanitize tokens inbound?
+            // FUTURE: sanitize inbound tokens
 
             bool cacheOverflow = false;
             foreach (CATS.Models.Token token in tokens)
             {
+                if (_tokenCache.GetString(token.Pattern) != null)
+                    Logger.Info($"Duplicate token found! Token pattern: {token.Pattern}", typeof(CATSTokenCacheManager));
+
                 _tokenCache.SetString(token.Pattern, token.Value);
 
                 if (_tokenCache.InnerCache.Size >= _cacheMaxSize)

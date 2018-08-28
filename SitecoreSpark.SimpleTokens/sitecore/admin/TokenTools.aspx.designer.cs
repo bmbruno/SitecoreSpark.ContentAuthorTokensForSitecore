@@ -22,22 +22,40 @@ namespace SitecoreSpark.CATS.sitecore.admin {
         protected global::System.Web.UI.HtmlControls.HtmlForm formCATS;
         
         /// <summary>
-        /// databaseList control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList databaseList;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
-        /// taskList control.
+        /// btnGetTokenInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList taskList;
+        protected global::System.Web.UI.WebControls.Button btnGetTokenInfo;
+        
+        /// <summary>
+        /// txtDatabaseTokens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDatabaseTokens;
+        
+        /// <summary>
+        /// txtCacheTokens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCacheTokens;
         
         /// <summary>
         /// btnRebuildCache control.
@@ -56,23 +74,5 @@ namespace SitecoreSpark.CATS.sitecore.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClearCache;
-        
-        /// <summary>
-        /// lblStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
-        
-        /// <summary>
-        /// log control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox log;
     }
 }

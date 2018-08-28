@@ -21,6 +21,7 @@
 * TODO: Admin page: reset cache + sync tokens + view cache
 * TODO: Validation to confirm that tokens are unique
 * TODO: button on ribbon to sync tokens?
+* TODO: button on ribbon to display usable tokens?
 * TODO: use single char for token delimiter instead of strings? (performance reasons)
 
 * REFERENCE: https://sitecorerunner.com/2018/08/21/adding-rte-richtext-custom-dropdown-list-in-sitecore-9/

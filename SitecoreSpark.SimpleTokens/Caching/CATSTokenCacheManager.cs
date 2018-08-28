@@ -51,6 +51,21 @@ namespace SitecoreSpark.CATS.Caching
             return _tokenCache.InnerCache.GetCacheKeys();
         }
 
+        /// <summary>
+        /// Gets an array of all keys in the cache, with an option to exclude CATS-specific tokens.
+        /// </summary>
+        /// <param name="onlyUserTokens">Determines if only user tokens should be returned.</param>
+        /// <returns>String array of cache keys, with or without CATS cached-items.</returns>
+        public static string[] GetKeys(bool onlyUserTokens)
+        {
+            string[] allKeys = GetKeys();
+
+            if (onlyUserTokens)
+                return allKeys.Where(u => !u.StartsWith("CATS_")).ToArray();
+
+            return allKeys;
+        }
+
         public static void SetCache(string key, string value)
         {
             // TODO: handle cache overflow possibility?

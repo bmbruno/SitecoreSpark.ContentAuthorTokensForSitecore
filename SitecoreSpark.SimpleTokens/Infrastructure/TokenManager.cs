@@ -107,5 +107,33 @@ namespace SitecoreSpark.CATS.Infrastructure
 
             return configItem;
         }
+
+        /// <summary>
+        /// Gets the token start tag from configuration.
+        /// </summary>
+        /// <returns>String of token tag.</returns>
+        public static string GetTokenStartTag()
+        {
+            string rawValue = Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.StartTag");
+
+            if (String.IsNullOrEmpty(rawValue))
+                throw new Exception("SitecoreSpark.CATS.StartTag is empty! Check SitecoreSpark.CATS.Settings.config file.");
+
+            return rawValue;
+        }
+
+        /// <summary>
+        /// Gets the token end tag from configuration.
+        /// </summary>
+        /// <returns>String of token tag.</returns>
+        public static string GetTokenEndTag()
+        {
+            string rawValue = Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.EndTag");
+
+            if (String.IsNullOrEmpty(rawValue))
+                throw new Exception("SitecoreSpark.CATS.EndTag is empty! Check SitecoreSpark.CATS.Settings.config file.");
+
+            return rawValue;
+        }
     }
 }

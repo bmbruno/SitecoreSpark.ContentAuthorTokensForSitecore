@@ -135,6 +135,7 @@
     <Content Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
     <Content Include="App_Config\Include\Unicorn\SitecoreSpark.CATS.Unicorn.config" />
     <Content Include="sitecore\admin\TokenTools.aspx" />
+    <Content Include="sitecore\shell\Applications\ContentAuthorTokens\ViewTokens.aspx" />
     <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
@@ -157,6 +158,13 @@
     </Compile>
     <Compile Include="sitecore\admin\TokenTools.aspx.designer.cs">
       <DependentUpon>TokenTools.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sitecore\shell\Applications\ContentAuthorTokens\ViewTokens.aspx.cs">
+      <DependentUpon>ViewTokens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sitecore\shell\Applications\ContentAuthorTokens\ViewTokens.aspx.designer.cs">
+      <DependentUpon>ViewTokens.aspx</DependentUpon>
     </Compile>
     <Compile Include="Validators\NoDuplicateTokens.cs" />
   </ItemGroup>

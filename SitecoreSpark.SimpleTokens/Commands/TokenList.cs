@@ -13,7 +13,7 @@ namespace SitecoreSpark.CATS.Commands
     {
         public override void Execute(CommandContext context)
         {
-            SheerResponse.ShowModalDialog(new ModalDialogOptions("/sitecore/admin/TokenTools.aspx")
+            SheerResponse.ShowModalDialog(new ModalDialogOptions("/sitecore/shell/Applications/ContentAuthorTokens/ViewTokens.aspx")
             {
                 Width = "600",
                 Height = "700",

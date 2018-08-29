@@ -13,6 +13,7 @@
 * Configurable token format
 * Admin page: reset cache + sync tokens + view cache
 * Built-in cache
+* Validation to confirm that tokens are unique
 * TODO: Optional compatibility with Glass Mapper
 
 // DEV NOTES:
@@ -20,17 +21,17 @@
 * Sitecore init: build cache
 * After Publish: build cache?
 
-* TODO: Validation to confirm that tokens are unique
 * TODO: button on ribbon to sync tokens?
 * TODO: button on ribbon to display usable tokens?
 * TODO: use single char for token delimiter instead of strings? (performance reasons)
+* TODO: general performance review
 
 * REFERENCE: https://sitecorerunner.com/2018/08/21/adding-rte-richtext-custom-dropdown-list-in-sitecore-9/
 
 ## Requirements
 
 * .NET 4.6.1 or greater
-* Sitecore 8.1.1 or greater
+* Sitecore 8.2.0 or greater
 
 ## Getting Started
 

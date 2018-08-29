@@ -1,0 +1,22 @@
+﻿---
+ID: "1517a204-cf9d-4962-b806-99e94af32cb1"
+Parent: "d0fc99d9-5c65-43a3-acb6-4495d44fb0e7"
+Template: "ef295cd8-19d4-4e02-9438-94c926ef5284"
+Path: /sitecore/content/Applications/Content Editor/Ribbons/Strips/Navigate/Content Author Tokens
+DB: core
+SharedFields:
+- ID: "c9ce97fb-3e8e-4384-9430-7dba75b275dd"
+  Hint: Reference
+  Value: "{51D7135B-BB7C-4F7C-AF2C-29524BAA3073}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180829T152525Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

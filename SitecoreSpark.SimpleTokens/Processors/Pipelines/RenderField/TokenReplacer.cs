@@ -25,8 +25,8 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
             if (validTokenFields.Contains(args.FieldTypeKey))
             {
                 // Set up metadata
-                string startTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_START_TAG");
-                string endTag = Caching.CATSTokenCacheManager.GetCache("CATS_TOKEN_END_TAG");
+                string startTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_Start_Tag);
+                string endTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_End_Tag);
 
                 // TODO: design a better algorithm
                 // NOTE: option 1) iterate over all cached keys and replace

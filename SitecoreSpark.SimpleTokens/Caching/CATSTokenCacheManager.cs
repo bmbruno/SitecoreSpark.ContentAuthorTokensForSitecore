@@ -83,8 +83,8 @@ namespace SitecoreSpark.CATS.Caching
                 ClearCache();
 
             // Cache token delimiters
-            _tokenCache.SetString("CATS_TOKEN_START_TAG", TokenManager.GetTokenStartTag());
-            _tokenCache.SetString("CATS_TOKEN_END_TAG", TokenManager.GetTokenEndTag());
+            _tokenCache.SetString(SitecoreSpark.CATS.Infrastructure.Constants.CATS_Token_Start_Tag, TokenManager.GetTokenStartTag());
+            _tokenCache.SetString(SitecoreSpark.CATS.Infrastructure.Constants.CATS_Token_End_Tag, TokenManager.GetTokenEndTag());
 
             // Get token library items from Sitecore
             IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();

@@ -14,15 +14,10 @@
 * Admin page: reset cache + sync tokens + view cache
 * Built-in cache
 * Validation to confirm that tokens are unique
+* Button on ribbon to display usable tokens
 * TODO: Optional compatibility with Glass Mapper
 
-// DEV NOTES:
-
-* Sitecore init: build cache
-* After Publish: build cache?
-
-* TODO: button on ribbon to sync tokens?
-* TODO: button on ribbon to display usable tokens?
+* TODO: make tokens not case sensitive
 * TODO: use single char for token delimiter instead of strings? (performance reasons)
 * TODO: general performance review
 
@@ -47,9 +42,19 @@
 
 ## Other Notes
 
+* Tokens are case sensitive?
+
+Tokens cache is rebuilt:
+
+ * When the Sitecore initialization pipeline runs
+ * During a site publish
+ * Manually via the TokenTools.aspx admin page
+
 ## Dependency Injection
   
 ## Upcoming Features
+
+* TODO: button on ribbon to sync tokens?
 
 ## Contact the Author
 

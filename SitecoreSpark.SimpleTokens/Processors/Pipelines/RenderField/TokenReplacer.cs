@@ -38,31 +38,38 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
 
             if (validTokenFields.Contains(args.FieldTypeKey))
             {
-                // Set up metadata and keys
-                string startTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_Start_Tag);
-                string endTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_End_Tag);
-                string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
-
-                // "Less than 3" condition accounts for the start/end tags being in the cache
-                if (allKeys == null || allKeys.Length < 3)
-                    return;
-
-                // Replace token (if token-like pattern is found)
-                if (args.FieldValue.Contains(startTag) && args.FieldValue.Contains(endTag))
+                try
                 {
-                    string result = args.Result.FirstPart;
-                    string pattern = string.Empty;
+                    // Set up metadata and keys
+                    string startTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_Start_Tag);
+                    string endTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_End_Tag);
+                    string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
 
-                    // Iterate over cached tokens, check for replacements
-                    foreach (string key in allKeys)
+                    // "Less than 3" condition accounts for the start/end tags being in the cache
+                    if (allKeys == null || allKeys.Length < 3)
+                        return;
+
+                    // Replace token (if token-like pattern is found)
+                    if (args.FieldValue.Contains(startTag) && args.FieldValue.Contains(endTag))
                     {
-                        pattern = string.Concat(startTag, key, endTag);
+                        string result = args.Result.FirstPart;
+                        string pattern = string.Empty;
 
-                        string newValue = Caching.CATSTokenCacheManager.GetCache(key);
-                        result = result.Replace(pattern, newValue);
+                        // Iterate over cached tokens, check for replacements
+                        foreach (string key in allKeys)
+                        {
+                            pattern = string.Concat(startTag, key, endTag);
+
+                            string newValue = Caching.CATSTokenCacheManager.GetCache(key);
+                            result = result.Replace(pattern, newValue);
+                        }
+
+                        args.Result.FirstPart = result.ToString();
                     }
-
-                    args.Result.FirstPart = result.ToString();
+                }
+                catch (Exception exc)
+                {
+                    Logger.Error($"Exception while rendering a content author token: {exc.Message.ToString()}", this);
                 }
             }
         }

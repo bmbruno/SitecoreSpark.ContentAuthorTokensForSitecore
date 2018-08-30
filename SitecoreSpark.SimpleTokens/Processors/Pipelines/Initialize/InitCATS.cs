@@ -1,6 +1,7 @@
 ﻿using Sitecore.Diagnostics;
 using Sitecore.Pipelines;
 using Sitecore.Pipelines.RenderField;
+using SitecoreSpark.CATS.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,15 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.Initialize
         public void Process(PipelineArgs args)
         {
             Assert.ArgumentNotNull(args, nameof(args));
-            Caching.CATSTokenCacheManager.BuildCache();
+
+            try
+            {
+                Caching.CATSTokenCacheManager.BuildCache();
+            }
+            catch (Exception exc)
+            {
+                Logger.Error($"Exception during initialization caching of content author tokens: {exc.Message.ToString()}", this);
+            }
         }
     }
 }

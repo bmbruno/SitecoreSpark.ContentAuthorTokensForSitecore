@@ -70,7 +70,7 @@ namespace SitecoreSpark.CATS.Caching
             string[] allKeys = GetKeys();
 
             if (onlyUserTokens)
-                return allKeys.Where(u => !u.StartsWith("CATS_")).ToArray();
+                return allKeys.Where(u => !u.StartsWith("_CATS_")).ToArray();
 
             return allKeys;
         }

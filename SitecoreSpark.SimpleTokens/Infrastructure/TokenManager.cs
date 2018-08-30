@@ -79,15 +79,16 @@ namespace SitecoreSpark.CATS.Infrastructure
 
                     if (validToken)
                     {
-                        if (onlyUserTokens && !pattern.StartsWith("_CATS_"))
+                        if (onlyUserTokens && pattern.StartsWith("_CATS_"))
+                            continue;
+
+                        tokens.Add(new ContentToken()
                         {
-                            tokens.Add(new ContentToken()
-                            {
-                                ItemID = token.ID.Guid,
-                                Pattern = pattern,
-                                Value = value
-                            });
-                        }
+                            ItemID = token.ID.Guid,
+                            Pattern = pattern,
+                            Value = value
+                        });
+                        
                     }
                 }
             }

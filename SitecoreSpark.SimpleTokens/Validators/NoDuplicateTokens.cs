@@ -32,7 +32,7 @@ namespace SitecoreSpark.CATS.Validators
 
             // Load all existing Tokens
             IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
-            IEnumerable<Token> tokens = TokenManager.GetTokensFromLibraries(libraries);
+            IEnumerable<ContentToken> tokens = TokenManager.GetTokensFromLibraries(libraries);
 
             // Check for duplicate key
             if (tokens.Any(u => u.Pattern.Equals(inputValue, StringComparison.InvariantCultureIgnoreCase) && u.ItemID != currentItem.ID.Guid))

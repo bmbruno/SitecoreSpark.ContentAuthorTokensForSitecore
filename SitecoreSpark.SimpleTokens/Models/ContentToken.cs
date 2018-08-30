@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SitecoreSpark.CATS.Models
 {
-    public class Token
+    public class ContentToken
     {
         public Guid ItemID { get; set; }
 

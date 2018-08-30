@@ -146,7 +146,7 @@
     <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Infrastructure\Extensions\ItemExtensions.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
-    <Compile Include="Models\Token.cs" />
+    <Compile Include="Models\ContentToken.cs" />
     <Compile Include="Processors\Pipelines\Initialize\InitCATS.cs" />
     <Compile Include="Processors\Pipelines\Publish\RebuildTokenCache.cs" />
     <Compile Include="Processors\Pipelines\RenderField\TokenReplacer.cs" />

@@ -3,6 +3,7 @@ using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Data.Query;
 using SitecoreSpark.CATS.Infrastructure;
+using SitecoreSpark.CATS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,13 +33,20 @@ namespace SitecoreSpark.CATS.Caching
 
         public static string GetCache(string key)
         {
+            // Get token from cache first
             if (_tokenCache.InnerCache.ContainsKey(key))
                 return _tokenCache.GetString(key);
 
-            // Cache miss: load from Sitecore (this might degrade page rendering performance)
+            // Cache miss: load token from Sitecore (this will degrade page rendering performance)
+            IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
+            IEnumerable<ContentToken> tokens = TokenManager.GetTokensFromLibraries(libraries);
+            ContentToken token = tokens.FirstOrDefault(u => u.Pattern.Equals(key, StringComparison.Ordinal));
 
-            // TODO: implement this
+            if (token != null)
+                return token.Value;
 
+            // No token found: holy crap, someone screwed up
+            Logger.Warn($"Fatal content token error: no token found in cache or the database for '{token.Pattern}'", typeof(CATSTokenCacheManager));
             return string.Empty;
         }
 
@@ -90,12 +98,12 @@ namespace SitecoreSpark.CATS.Caching
             IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
 
             // Get tokens from all libraries
-            IEnumerable<CATS.Models.Token> tokens = TokenManager.GetTokensFromLibraries(libraries);
+            IEnumerable<ContentToken> tokens = TokenManager.GetTokensFromLibraries(libraries);
 
             // FUTURE: sanitize inbound tokens
 
             bool cacheOverflow = false;
-            foreach (CATS.Models.Token token in tokens)
+            foreach (ContentToken token in tokens)
             {
                 if (_tokenCache.GetString(token.Pattern) != null)
                     Logger.Info($"Duplicate token found! Token pattern: {token.Pattern}", typeof(CATSTokenCacheManager));

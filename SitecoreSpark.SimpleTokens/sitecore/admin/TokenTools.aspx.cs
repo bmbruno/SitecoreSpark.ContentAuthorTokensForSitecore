@@ -27,7 +27,7 @@ namespace SitecoreSpark.CATS.sitecore.admin
             StringBuilder sb = new StringBuilder();
 
             // Tokens in database
-            IEnumerable<Token> dbTokens = TokenManager.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
+            IEnumerable<ContentToken> dbTokens = TokenManager.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
 
             sb.Clear();
             sb.Append($"Token Count: {dbTokens.Count()}\n\n");

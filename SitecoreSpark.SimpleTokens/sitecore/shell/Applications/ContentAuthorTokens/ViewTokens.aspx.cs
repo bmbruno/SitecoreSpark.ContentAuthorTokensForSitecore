@@ -37,7 +37,7 @@ namespace SitecoreSpark.CATS.sitecore.admin
             litTokenExample.Text = $"{startTag}TOKEN{endTag}";
 
             // Tokens in database
-            IEnumerable<Token> dbTokens = TokenManager.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
+            IEnumerable<ContentToken> dbTokens = TokenManager.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
 
             rptTokenList.DataSource = dbTokens;
             rptTokenList.DataBind();

@@ -53,9 +53,9 @@ namespace SitecoreSpark.CATS.Infrastructure
         /// </summary>
         /// <param name="libraries">Libraries to load tokens from.</param>
         /// <returns>List of Token objects.</returns>
-        public static IEnumerable<Token> GetTokensFromLibraries(IEnumerable<Item> libraries)
+        public static IEnumerable<ContentToken> GetTokensFromLibraries(IEnumerable<Item> libraries)
         {
-            List<Token> tokens = new List<Token>();
+            List<ContentToken> tokens = new List<ContentToken>();
 
             foreach (Item library in libraries)
             {
@@ -81,7 +81,7 @@ namespace SitecoreSpark.CATS.Infrastructure
 
                     if (validToken)
                     {
-                        tokens.Add(new Token()
+                        tokens.Add(new ContentToken()
                         {
                             ItemID = token.ID.Guid,
                             Pattern = pattern,

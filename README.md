@@ -17,9 +17,9 @@
 * Button on ribbon to display usable tokens
 * TODO: Optional compatibility with Glass Mapper
 
+* TOOD: make sure no exceptions crash Sitecore INIT or PUBLISH processes - just write to logs
 * TODO: make tokens not case sensitive
 * TODO: use single char for token delimiter instead of strings? (performance reasons)
-* TODO: general performance review
 
 * REFERENCE: https://sitecorerunner.com/2018/08/21/adding-rte-richtext-custom-dropdown-list-in-sitecore-9/
 

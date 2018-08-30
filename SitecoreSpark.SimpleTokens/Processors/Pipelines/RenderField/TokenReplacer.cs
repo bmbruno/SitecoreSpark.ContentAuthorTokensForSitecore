@@ -7,6 +7,15 @@ using System.Text;
 using System.Web;
 using SitecoreSpark.CATS.Infrastructure;
 
+/* 
+ * A Note on Performance:
+ * 
+ * String.Replace(string, string) is used for token replacement. While StringBuilder.Replace(string, string) is considerably more memory-efficient
+ * and quicker for a larger number of replacements, String.Replace() works just fine for a small number of strings (<20 per page). If you need to
+ * tokenize a large amount of content across many pages, you may want to consider changing this to use StringBuilder.Replace().
+ * 
+ */
+
 namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
 {
     public class TokenReplacer
@@ -19,25 +28,20 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
                 return;
 
             // Only operate on certain field types
-            // HashSet.Contains() is a native, highly-optimzed method; preferred over the Contains() array extension method
+            // HashSet.Contains() is a native, highly-optimzed method; preferred over the array Contains() extension method
             HashSet<string> validTokenFields = new HashSet<string>(Constants.CATS_ValidTokenFieldTypes);
 
             if (validTokenFields.Contains(args.FieldTypeKey))
             {
-                // Set up metadata
+                // Set up metadata and keys
                 string startTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_Start_Tag);
                 string endTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_End_Tag);
-
-                // TODO: design a better algorithm
-                // NOTE: option 1) iterate over all cached keys and replace
-                // NOTE: option 2) check if tokens exist in content, if so, grab cache by key
                 string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
 
-                // Replace token (if token-like pattern is found)c
+                // Replace token (if token-like pattern is found)
                 if (args.FieldValue.Contains(startTag) && args.FieldValue.Contains(endTag))
                 {
-                    StringBuilder result = new StringBuilder(args.Result.FirstPart);
-
+                    string result = args.Result.FirstPart;
                     string pattern = string.Empty;
 
                     // Iterate over cached tokens, check for replacements
@@ -46,7 +50,7 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
                         pattern = $"{startTag}{key}{endTag}";
 
                         string newValue = Caching.CATSTokenCacheManager.GetCache(key);
-                        result.Replace(pattern, newValue);
+                        result = result.Replace(pattern, newValue);
                     }
 
                     args.Result.FirstPart = result.ToString();

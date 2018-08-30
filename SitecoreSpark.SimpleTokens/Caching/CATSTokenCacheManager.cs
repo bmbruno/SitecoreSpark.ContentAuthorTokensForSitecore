@@ -37,7 +37,8 @@ namespace SitecoreSpark.CATS.Caching
             if (_tokenCache.InnerCache.ContainsKey(key))
                 return _tokenCache.GetString(key);
 
-            // Cache miss: load token from Sitecore (this will degrade page rendering performance)
+            // CACHE MISS: load token from Sitecore (this will degrade page rendering performance)
+            // This will almost never happen since the token list must be loaded from cache
             IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
             IEnumerable<ContentToken> tokens = TokenManager.GetTokensFromLibraries(libraries);
             ContentToken token = tokens.FirstOrDefault(u => u.Pattern.Equals(key, StringComparison.Ordinal));

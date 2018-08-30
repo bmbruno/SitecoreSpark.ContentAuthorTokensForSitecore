@@ -51,7 +51,7 @@ namespace SitecoreSpark.CATS.Infrastructure
         /// </summary>
         /// <param name="libraries">Libraries to load tokens from.</param>
         /// <returns>List of Token objects.</returns>
-        public static IEnumerable<ContentToken> GetTokensFromLibraries(IEnumerable<Item> libraries)
+        public static IEnumerable<ContentToken> GetTokensFromLibraries(IEnumerable<Item> libraries, bool onlyUserTokens = false)
         {
             List<ContentToken> tokens = new List<ContentToken>();
 
@@ -79,12 +79,15 @@ namespace SitecoreSpark.CATS.Infrastructure
 
                     if (validToken)
                     {
-                        tokens.Add(new ContentToken()
+                        if (onlyUserTokens && !pattern.StartsWith("_CATS_"))
                         {
-                            ItemID = token.ID.Guid,
-                            Pattern = pattern,
-                            Value = value
-                        });
+                            tokens.Add(new ContentToken()
+                            {
+                                ItemID = token.ID.Guid,
+                                Pattern = pattern,
+                                Value = value
+                            });
+                        }
                     }
                 }
             }
@@ -135,13 +138,15 @@ namespace SitecoreSpark.CATS.Infrastructure
         }
 
         /// <summary>
-        /// Gets the current context database name. If Sitecore.Context.Database is null, returns SitecoreSpark.CATS.DefaultDatabase from settings.
+        /// Gets the current context database name. If Sitecore.Context.Database or ContentDatabase is null, returns SitecoreSpark.CATS.DefaultDatabase from settings.
         /// </summary>
         public static string GetCurrentDatabaseName()
         {
             string databaseName = string.Empty;
 
             if (Sitecore.Context.Database != null)
+                return Sitecore.Context.Database.Name;
+            else if (Sitecore.Context.ContentDatabase != null)
                 return Sitecore.Context.ContentDatabase.Name;
             else
                 return Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.DefaultDatabase");

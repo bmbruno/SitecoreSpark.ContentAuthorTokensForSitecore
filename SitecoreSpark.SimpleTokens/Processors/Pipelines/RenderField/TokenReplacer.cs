@@ -45,10 +45,6 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
                     string endTag = Caching.CATSTokenCacheManager.GetCache(Constants.CATS_Token_End_Tag);
                     string[] allKeys = Caching.CATSTokenCacheManager.GetKeys();
 
-                    // "Less than 3" condition accounts for the start/end tags being in the cache
-                    if (allKeys == null || allKeys.Length < 3)
-                        return;
-
                     // Replace token (if token-like pattern is found)
                     if (args.FieldValue.Contains(startTag) && args.FieldValue.Contains(endTag))
                     {

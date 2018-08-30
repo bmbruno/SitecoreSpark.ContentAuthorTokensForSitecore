@@ -11,15 +11,13 @@ namespace SitecoreSpark.CATS.Infrastructure
 {
     public static class TokenManager
     {
-        public const string TOKEN_DATABASE = "master";
-
         /// <summary>
         /// Loads all token library items in Sitecore; first the default library, then any user definied libraries that are set up on the CATS configuration item.
         /// </summary>
         /// <returns>List of token library Items.</returns>
         public static IEnumerable<Item> GetAllTokenLibraries()
         {
-            Database tokenDB = Database.GetDatabase(Sitecore.Context.Database.Name ?? TOKEN_DATABASE);
+            Database tokenDB = Database.GetDatabase(GetCurrentDatabaseName());
             List<Item> libraries = new List<Item>();
 
             // Default library
@@ -100,7 +98,7 @@ namespace SitecoreSpark.CATS.Infrastructure
         /// <returns>Sitecore Item of the module root object.</returns>
         public static Item GetConfigurationItem()
         {
-            Item configItem = Sitecore.Data.Database.GetDatabase(Sitecore.Context.Database.Name ?? TOKEN_DATABASE).GetItem(Constants.CATS_Configuration_Item_ID);
+            Item configItem = Sitecore.Data.Database.GetDatabase(GetCurrentDatabaseName()).GetItem(Constants.CATS_Configuration_Item_ID);
 
             if (configItem == null)
                 throw new Exception($"No configuration item found with ID: {Constants.CATS_Default_Library_ID}. Please re-install the CATS module.");
@@ -134,6 +132,21 @@ namespace SitecoreSpark.CATS.Infrastructure
                 throw new Exception("SitecoreSpark.CATS.EndTag is empty! Check SitecoreSpark.CATS.Settings.config file.");
 
             return rawValue;
+        }
+
+        /// <summary>
+        /// Gets the current context database name. If Sitecore.Context.Database is null, returns SitecoreSpark.CATS.DefaultDatabase from settings.
+        /// </summary>
+        public static string GetCurrentDatabaseName()
+        {
+            string databaseName = string.Empty;
+
+            if (Sitecore.Context.Database != null)
+                return Sitecore.Context.Database.Name;
+            else
+                return Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.DefaultDatabase");
+
+
         }
     }
 }

@@ -47,7 +47,7 @@ namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField
                     // Iterate over cached tokens, check for replacements
                     foreach (string key in allKeys)
                     {
-                        pattern = $"{startTag}{key}{endTag}";
+                        pattern = string.Concat(startTag, key, endTag);
 
                         string newValue = Caching.CATSTokenCacheManager.GetCache(key);
                         result = result.Replace(pattern, newValue);

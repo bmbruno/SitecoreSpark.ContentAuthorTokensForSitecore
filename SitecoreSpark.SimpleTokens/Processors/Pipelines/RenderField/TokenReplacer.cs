@@ -14,6 +14,11 @@ using SitecoreSpark.CATS.Infrastructure;
  * and quicker for a larger number of replacements, String.Replace() works just fine for a small number of strings (<20 per page). If you need to
  * tokenize a large amount of content across many pages, you may want to consider changing this to use StringBuilder.Replace().
  * 
+ * A Note on Casing:
+ * 
+ * Tokens are case-sensitive because String.Replace(string, string) is case-sensitive. Other possible replacements, such as RegEx, would allow for
+ * case-insensitive strings, but as stated above, String.Replace() is used for raw performance reasons.
+ * 
  */
 
 namespace SitecoreSpark.CATS.Processors.Pipelines.RenderField

@@ -142,7 +142,7 @@ namespace SitecoreSpark.CATS.Infrastructure
             string databaseName = string.Empty;
 
             if (Sitecore.Context.Database != null)
-                return Sitecore.Context.Database.Name;
+                return Sitecore.Context.ContentDatabase.Name;
             else
                 return Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.DefaultDatabase");
 

@@ -19,7 +19,7 @@ namespace SitecoreSpark.CATS.Infrastructure
         /// <returns>List of token library Items.</returns>
         public static IEnumerable<Item> GetAllTokenLibraries()
         {
-            Database tokenDB = Database.GetDatabase(TOKEN_DATABASE);
+            Database tokenDB = Database.GetDatabase(Sitecore.Context.Database.Name ?? TOKEN_DATABASE);
             List<Item> libraries = new List<Item>();
 
             // Default library
@@ -100,7 +100,7 @@ namespace SitecoreSpark.CATS.Infrastructure
         /// <returns>Sitecore Item of the module root object.</returns>
         public static Item GetConfigurationItem()
         {
-            Item configItem = Sitecore.Data.Database.GetDatabase(TOKEN_DATABASE).GetItem(Constants.CATS_Configuration_Item_ID);
+            Item configItem = Sitecore.Data.Database.GetDatabase(Sitecore.Context.Database.Name ?? TOKEN_DATABASE).GetItem(Constants.CATS_Configuration_Item_ID);
 
             if (configItem == null)
                 throw new Exception($"No configuration item found with ID: {Constants.CATS_Default_Library_ID}. Please re-install the CATS module.");

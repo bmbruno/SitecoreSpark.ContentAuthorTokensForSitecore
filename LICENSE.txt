@@ -1,6 +1,6 @@
 ﻿--------------------------------------------------------------------------------
 
-MIT License for Sitecore Publish Reporting Kit
+MIT License for Content Author Tokens for Sitecore
 MIT License for tablesort v5.0.2
 
 --------------------------------------------------------------------------------

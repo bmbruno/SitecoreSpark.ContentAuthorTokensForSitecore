@@ -137,6 +137,7 @@
     <Content Include="sitecore\admin\TokenTools.aspx" />
     <Content Include="sitecore\shell\Applications\ContentAuthorTokens\ViewTokens.aspx" />
     <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
+    <Content Include="sitecore\shell\Themes\Standard\CATS.zip" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

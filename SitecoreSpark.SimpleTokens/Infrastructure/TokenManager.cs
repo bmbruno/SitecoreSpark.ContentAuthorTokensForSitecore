@@ -151,8 +151,6 @@ namespace SitecoreSpark.CATS.Infrastructure
                 return Sitecore.Context.ContentDatabase.Name;
             else
                 return Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.DefaultDatabase");
-
-
         }
     }
 }

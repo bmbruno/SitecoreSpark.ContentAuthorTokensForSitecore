@@ -145,7 +145,7 @@ namespace SitecoreSpark.CATS.Infrastructure
         {
             string databaseName = string.Empty;
 
-            if (Sitecore.Context.Database != null)
+            if (Sitecore.Context.Database != null && !Sitecore.Context.Database.Name.Equals("core"))
                 return Sitecore.Context.Database.Name;
             else if (Sitecore.Context.ContentDatabase != null)
                 return Sitecore.Context.ContentDatabase.Name;

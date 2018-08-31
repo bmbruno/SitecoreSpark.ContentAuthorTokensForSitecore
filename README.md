@@ -1,11 +1,10 @@
 * TODO: custom cat icon?
-* TODO: add View Tokens button to EE too?
 
 # README #
 
 ## About
 
-Content Author Tokens for Sitecore (CATS!) allows content authors to create, manage, and use basic token replacement in the common Sitecore fields.
+Content Author Tokens for Sitecore (CATS!) allows content authors to create, manage, and use basic token replacement in common Sitecore content fields.
 
 For example:
 
@@ -19,10 +18,9 @@ TODO: link to demo image(s)
 * Simple, text-based token replacement for common Sitecore fields (single-line text, text, rich text, image, general link).
 * Token management in the content tree (admin & multi-tenant).
 * Configurable token format.
-* Admin page: reset cache, sync tokens, view cache.
+* Admin page: sync tokens, view cache, reset cache.
 * Built-in cache.
 * Button on ribbon to display usable tokens.
-* COMING SOON: Optional compatibility with Glass Mapper.
 
 ## Requirements
 
@@ -48,9 +46,9 @@ The following settings are available:
  * `SitecoreSpark.CATS.StartTag` - The opening tag for tokens (default is "{{")
  * `SitecoreSpark.CATS.EndTag` - The closing tag for tokens (default is "}}")
  * `SitecoreSpark.CATS.CacheSize` - Size of token cache (default is 10MB)
- * `SitecoreSpark.CATS.DefaultDatabase` - Default content database (default is "master"); change this if you don't edit content out of "master"
+ * `SitecoreSpark.CATS.DefaultDatabase` - Default content database (default is "master"); change this if you don't edit content in "master"
 
- **Note**: The `CacheSize` setting is particularly important. Tokens must be stored in cache to render.
+ **Note**: The `CacheSize` setting is particularly important. Tokens must be stored in cache in order to render, so be sure not to zero this out.
 
  #### 3. Verify the Installation ####
 
@@ -110,10 +108,13 @@ An admin page - `TokenTools.aspx` - allows you to view cache status, clear token
 
 * Tokens are case sensitive
 * Tokens have built-in field validation to ensure Patterns are unique across the entire Sitecore instance
+* Info, warnings, and errors are written to standard Sitecore logs; all logs are prepended with "[CATS]"
 
 ## Upcoming Features
 
 * Glass Mapper 4 and 5 compatibility
+* Optimizations related to publishing process
+* "View Tokens" button for Experience Editor
 
 ## Contact the Author
 

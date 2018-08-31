@@ -44,7 +44,7 @@ namespace SitecoreSpark.CATS.Caching
             ContentToken token = tokens.FirstOrDefault(u => u.Pattern.Equals(key, StringComparison.Ordinal));
 
             if (token != null)
-                return token.Value;
+                return token.Output;
 
             // No token found: holy crap, someone screwed up
             Logger.Warn($"Fatal content token error: no token found in cache or the database for '{token.Pattern}'", typeof(CATSTokenCacheManager));
@@ -107,9 +107,9 @@ namespace SitecoreSpark.CATS.Caching
             foreach (ContentToken token in tokens)
             {
                 if (_tokenCache.GetString(token.Pattern) != null)
-                    Logger.Info($"Duplicate token found! Token pattern: {token.Pattern}", typeof(CATSTokenCacheManager));
+                    Logger.Warn($"Duplicate token found! Token pattern: {token.Pattern}", typeof(CATSTokenCacheManager));
 
-                _tokenCache.SetString(token.Pattern, token.Value);
+                _tokenCache.SetString(token.Pattern, token.Output);
 
                 if (_tokenCache.InnerCache.Size >= _cacheMaxSize)
                     cacheOverflow = true; 

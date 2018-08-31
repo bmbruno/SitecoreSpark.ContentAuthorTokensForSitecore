@@ -1,11 +1,11 @@
 * TODO: custom cat icon?
-* TODO: test cache miss
+* TODO: add View Tokens button to EE too?
 
 # README #
 
 ## About
 
-Content Author Tokens for Sitecore (CATS!) allows content authors to create, manage, and use basic token replacement in the most common Sitecore fields.
+Content Author Tokens for Sitecore (CATS!) allows content authors to create, manage, and use basic token replacement in the common Sitecore fields.
 
 For example:
 
@@ -19,15 +19,15 @@ TODO: link to demo image(s)
 * Simple, text-based token replacement for common Sitecore fields (single-line text, text, rich text, image, general link).
 * Token management in the content tree (admin & multi-tenant).
 * Configurable token format.
-* Admin page: reset cache + sync tokens + view cache.
+* Admin page: reset cache, sync tokens, view cache.
 * Built-in cache.
 * Button on ribbon to display usable tokens.
-* COMING SOON: Optional compatibility with Glass Mapper (see below).
+* COMING SOON: Optional compatibility with Glass Mapper.
 
 ## Requirements
 
 * .NET 4.6.1 or greater
-* Sitecore 8.2.0 or greater
+* Sitecore 8.2.0 or greater (tested on TODO)
 
 ## Getting Started
 
@@ -50,32 +50,70 @@ The following settings are available:
  * `SitecoreSpark.CATS.CacheSize` - Size of token cache (default is 10MB)
  * `SitecoreSpark.CATS.DefaultDatabase` - Default content database (default is "master"); change this if you don't edit content out of "master"
 
- **Note**: The `CacheSize` setting is particularly important. Tokens must be stored in cache to render quickly.
+ **Note**: The `CacheSize` setting is particularly important. Tokens must be stored in cache to render.
 
-## Admin Page ##
+ #### 3. Verify the Installation ####
 
-`/sitecore/admin/TokenTools.aspx`
+ To verify the installation, ensure that you have the following item in your `master` database:
 
-#### 3. Verify the Installation ####
+ `/sitecore/System/Modules/Content Author Tokens`
 
-## Upgrading
+ You can also check `ShowConfig.aspx` to verify the following configuration patches:
+
+ * `sitecore/pipelines/initialize/SitecoreSpark.CATS.Processors.Pipelines.Initialize.InitCATS`
+ * `sitecore/pipelines/renderField/SitecoreSpark.CATS.Processors.Pipelines.Initialize.TokenReplacer`
+ * `sitecore/pipelines/publish/SitecoreSpark.CATS.Processors.Pipelines.Initialize.RebuildTokenCache`
+ * `sitecore/commands/cats:tokenlist`
+
+## Getting Started ##
+
+### Quick Start ###
+
+1. Add a new Token item under `/sitecore/system/Modules/Content Author Tokens/Token Library`
+2. Set the Pattern field (whatever you want content authors to use)
+3. Set the Output field (whatever you want to replace the token with during page rendering)
+4. Publish (to ensure tokens are synced to cache)
+
+### Token Libraries ###
+
+A token library is a folder that stores tokens. Out of the box, CATS provides a default token library:
+
+`/sitecore/System/Modules/Content Author Tokens/Token Library`
+
+If you require additional token libraries (for example, under the Content node in a multi-tenant environment):
+
+1. Insert a new item based on the `Token Library` template
+	* `/sitecore/templates/Content Author Tokens/Token Library - {BEEE1586-D37F-4637-9798-0DFFA496E0FB}`
+2. On the `Content Author Tokens` module item, add each new library to the 'Additonal token libraries' field
+	* This tells CATS where to find tokens
+	* All libraries must be added here; CATS will not recursively load libraries-in-libraries
+
+To view a list of available tokens, content authors can click "View Tokens" under the Presentation tab on the Content Editor ribbon
+
+### Syncing Tokens to Cache ###
+
+For performance reasons, all tokens are stored in and loaded from cache during page rendering. Cache management is mostly hands-off, but here are a few things to keep in mind:
+
+* Cache is automatically rebuilt/updated during the following events:
+	* Sitecore initialization
+	* Any publish operation
+
+* Cache can be manually rebuilt/updated by using the administration tool. See the **Troubleshooting** section below for more information.
 
 ## Troubleshooting 
+
+An admin page - `TokenTools.aspx` - allows you to view cache status, clear token cache, and rebuild the token cache from scratch.
+
+`https://<your_site>/sitecore/admin/TokenTools.aspx`
 
 ## Other Notes
 
 * Tokens are case sensitive
-* Native field validation to ensure tokens are unique
-
-Tokens cache is rebuilt:
-
- * When the Sitecore initialization pipeline runs
- * During a site publish
- * Manually via the TokenTools.aspx admin page
+* Tokens have built-in field validation to ensure Patterns are unique across the entire Sitecore instance
 
 ## Upcoming Features
 
-* TODO: button on ribbon to sync tokens?
+* Glass Mapper 4 and 5 compatibility
 
 ## Contact the Author
 

@@ -11,6 +11,6 @@ namespace SitecoreSpark.CATS.Models
 
         public string Pattern { get; set; }
 
-        public string Value { get; set; }
+        public string Output { get; set; }
     }
 }

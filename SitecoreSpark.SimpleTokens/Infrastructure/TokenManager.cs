@@ -62,18 +62,18 @@ namespace SitecoreSpark.CATS.Infrastructure
                 foreach (Item token in tokensInLibrary)
                 {
                     string pattern = token["Pattern"];
-                    string value = token["Value"];
+                    string value = token["Output"];
 
                     bool validToken = true;
                     if (String.IsNullOrEmpty(pattern))
                     {
-                        Logger.Warn($"Missing pattern for token item {token.ID}; will not be cached or utilized.", typeof(TokenManager));
+                        Logger.Warn($"Missing pattern for token item {token.ID}; will not be cached or rendered.", typeof(TokenManager));
                         validToken = false;
                     }
 
                     if (String.IsNullOrEmpty(value))
                     {
-                        Logger.Warn($"Missing value for token item {token.ID}; will not be cached or utilized.", typeof(TokenManager));
+                        Logger.Warn($"Missing output for token item {token.ID}; will not be cached or rendered.", typeof(TokenManager));
                         validToken = false;
                     }
 
@@ -86,7 +86,7 @@ namespace SitecoreSpark.CATS.Infrastructure
                         {
                             ItemID = token.ID.Guid,
                             Pattern = pattern,
-                            Value = value
+                            Output = value
                         });
                         
                     }

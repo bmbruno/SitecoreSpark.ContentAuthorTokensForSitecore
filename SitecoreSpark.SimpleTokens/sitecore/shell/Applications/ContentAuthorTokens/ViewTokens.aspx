@@ -12,7 +12,7 @@
             h1 { font-size: 2em; font-weight: bold; }
             .output { font-family: monospace; }
 
-            table { border-collapse: collapse; }
+            table { border-collapse: collapse; width: 100%; }
             table td { border: 1px solid #000; padding: 0.5em; }
             table th { padding: 0.5em; }
         </style>

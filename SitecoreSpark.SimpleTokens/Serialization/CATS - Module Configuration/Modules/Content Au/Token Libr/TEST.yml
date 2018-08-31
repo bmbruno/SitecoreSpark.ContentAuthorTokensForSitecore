@@ -1,0 +1,20 @@
+﻿---
+ID: "7f3f8e28-c70f-40ec-b0fb-d2aa59462ea8"
+Parent: "4cb657fa-94cd-4ff1-8b80-e84ceae189b5"
+Template: "91883b15-4f51-4219-9e71-47f90dfc1179"
+Path: /sitecore/system/Modules/Content Author Tokens/Token Library/TEST
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180831T154614Z
+    - ID: "2ef0c6d3-375d-4e45-9a4a-48fe18798faa"
+      Hint: Output
+      Value: TEST OUTPUT
+    - ID: "c66867bc-6a83-4a9f-b3bc-efb82f7ea539"
+      Hint: Pattern
+      Value: TEST TOKEN

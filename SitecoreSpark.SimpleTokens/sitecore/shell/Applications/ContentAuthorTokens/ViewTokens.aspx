@@ -41,7 +41,7 @@
                     <ItemTemplate>
                         <tr>
                             <td><%#Eval("Pattern")%></td>
-                            <td class="output"><%#:Eval("Value")%></td>
+                            <td class="output"><%#:Eval("Output")%></td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>

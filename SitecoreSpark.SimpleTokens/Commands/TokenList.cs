@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-// https://sitecore.stackexchange.com/questions/5945/how-do-a-open-a-speak-dialog-or-dashboard-application-from-within-code
-
 namespace SitecoreSpark.CATS.Commands
 {
     public class TokenList : Command

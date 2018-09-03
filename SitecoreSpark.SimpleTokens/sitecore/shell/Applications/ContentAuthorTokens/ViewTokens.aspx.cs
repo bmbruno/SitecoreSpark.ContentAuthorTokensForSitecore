@@ -27,17 +27,17 @@ namespace SitecoreSpark.CATS.sitecore.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
+            IEnumerable<Item> libraries = TokenService.GetAllTokenLibraries();
             StringBuilder sb = new StringBuilder();
 
             // Tag info
-            string startTag = TokenManager.GetTokenStartTag();
-            string endTag = TokenManager.GetTokenEndTag();
+            string startTag = TokenService.GetTokenStartTag();
+            string endTag = TokenService.GetTokenEndTag();
 
             litTokenExample.Text = $"{startTag}TOKEN{endTag}";
 
             // Tokens in database
-            IEnumerable<ContentToken> dbTokens = TokenManager.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
+            IEnumerable<ContentToken> dbTokens = TokenService.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
 
             rptTokenList.DataSource = dbTokens;
             rptTokenList.DataBind();

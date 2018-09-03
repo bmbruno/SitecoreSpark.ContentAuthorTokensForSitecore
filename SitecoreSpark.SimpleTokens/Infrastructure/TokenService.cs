@@ -9,7 +9,10 @@ using SitecoreSpark.CATS.Models;
 
 namespace SitecoreSpark.CATS.Infrastructure
 {
-    public static class TokenManager
+    /// <summary>
+    /// Provides access to content database token information. ALso some configuration item access.
+    /// </summary>
+    public static class TokenService
     {
         /// <summary>
         /// Loads all token library items in Sitecore; first the default library, then any user definied libraries that are set up on the CATS configuration item.
@@ -67,13 +70,13 @@ namespace SitecoreSpark.CATS.Infrastructure
                     bool validToken = true;
                     if (String.IsNullOrEmpty(pattern))
                     {
-                        Logger.Warn($"Missing pattern for token item {token.ID}; will not be cached or rendered.", typeof(TokenManager));
+                        Logger.Warn($"Missing pattern for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
                         validToken = false;
                     }
 
                     if (String.IsNullOrEmpty(value))
                     {
-                        Logger.Warn($"Missing output for token item {token.ID}; will not be cached or rendered.", typeof(TokenManager));
+                        Logger.Warn($"Missing output for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
                         validToken = false;
                     }
 

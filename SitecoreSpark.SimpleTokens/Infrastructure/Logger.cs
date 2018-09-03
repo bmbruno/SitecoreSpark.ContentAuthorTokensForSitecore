@@ -5,6 +5,9 @@ using System.Web;
 
 namespace SitecoreSpark.CATS.Infrastructure
 {
+    /// <summary>
+    /// Proxy logging methods for Sitecore diagnostics log.
+    /// </summary>
     public static class Logger
     {
         public static void Info(string message, object owner)

@@ -6,6 +6,9 @@ using System.Web;
 
 namespace SitecoreSpark.CATS.Caching
 {
+    /// <summary>
+    /// Implementation of a basic Sitecore cache for CATS; based on CustomCache class.
+    /// </summary>
     public class CATSTokenCache : CustomCache
     {
         public CATSTokenCache(string name, long maxSize) : base(name, maxSize) { }

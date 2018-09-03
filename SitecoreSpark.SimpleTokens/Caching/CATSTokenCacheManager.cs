@@ -11,10 +11,16 @@ using System.Web;
 
 namespace SitecoreSpark.CATS.Caching
 {
+    /// <summary>
+    /// Support class for managing content token cache.
+    /// </summary>
     public static class CATSTokenCacheManager
     {
         private static CATSTokenCache _tokenCache;
 
+        /// <summary>
+        /// The maximum size (in bytes) of the CAT token cache. Loaded from configuration.
+        /// </summary>
         private static long _cacheMaxSize
         {
             get
@@ -37,10 +43,10 @@ namespace SitecoreSpark.CATS.Caching
             if (_tokenCache.InnerCache.ContainsKey(key))
                 return _tokenCache.GetString(key);
 
-            // CACHE MISS: load token from Sitecore (this will degrade page rendering performance)
-            // This will almost never happen since the token list must be loaded from cache
-            IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
-            IEnumerable<ContentToken> tokens = TokenManager.GetTokensFromLibraries(libraries);
+            // CACHE MISS: load token from Sitecore (this will degrade page rendering performance).
+            // This will almost never happen since the token source list must be loaded from cache in the first place.
+            IEnumerable<Item> libraries = TokenService.GetAllTokenLibraries();
+            IEnumerable<ContentToken> tokens = TokenService.GetTokensFromLibraries(libraries);
             ContentToken token = tokens.FirstOrDefault(u => u.Pattern.Equals(key, StringComparison.Ordinal));
 
             if (token != null)
@@ -92,14 +98,14 @@ namespace SitecoreSpark.CATS.Caching
                 ClearCache();
 
             // Cache token delimiters
-            _tokenCache.SetString(SitecoreSpark.CATS.Infrastructure.Constants.CATS_Token_Start_Tag, TokenManager.GetTokenStartTag());
-            _tokenCache.SetString(SitecoreSpark.CATS.Infrastructure.Constants.CATS_Token_End_Tag, TokenManager.GetTokenEndTag());
+            _tokenCache.SetString(SitecoreSpark.CATS.Infrastructure.Constants.CATS_Token_Start_Tag, TokenService.GetTokenStartTag());
+            _tokenCache.SetString(SitecoreSpark.CATS.Infrastructure.Constants.CATS_Token_End_Tag, TokenService.GetTokenEndTag());
 
             // Get token library items from Sitecore
-            IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
+            IEnumerable<Item> libraries = TokenService.GetAllTokenLibraries();
 
             // Get tokens from all libraries
-            IEnumerable<ContentToken> tokens = TokenManager.GetTokensFromLibraries(libraries);
+            IEnumerable<ContentToken> tokens = TokenService.GetTokensFromLibraries(libraries);
 
             // FUTURE: sanitize inbound tokens
 

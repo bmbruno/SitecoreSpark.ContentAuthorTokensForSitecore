@@ -152,7 +152,7 @@
     <Compile Include="Processors\Pipelines\Publish\RebuildTokenCache.cs" />
     <Compile Include="Processors\Pipelines\RenderField\TokenReplacer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Infrastructure\TokenManager.cs" />
+    <Compile Include="Infrastructure\TokenService.cs" />
     <Compile Include="sitecore\admin\TokenTools.aspx.cs">
       <DependentUpon>TokenTools.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

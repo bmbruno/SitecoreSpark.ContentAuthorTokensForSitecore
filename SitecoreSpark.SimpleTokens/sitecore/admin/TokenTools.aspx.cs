@@ -23,11 +23,11 @@ namespace SitecoreSpark.CATS.sitecore.admin
 
         protected void btnGetTokenInfo_Click(object sender, EventArgs e)
         {
-            IEnumerable<Item> libraries = TokenManager.GetAllTokenLibraries();
+            IEnumerable<Item> libraries = TokenService.GetAllTokenLibraries();
             StringBuilder sb = new StringBuilder();
 
             // Tokens in database
-            IEnumerable<ContentToken> dbTokens = TokenManager.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
+            IEnumerable<ContentToken> dbTokens = TokenService.GetTokensFromLibraries(libraries).OrderBy(u => u.Pattern);
 
             sb.Clear();
             sb.Append($"Token Count: {dbTokens.Count()}\n\n");

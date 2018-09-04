@@ -1,5 +1,3 @@
-* TODO: custom cat icon?
-
 # README #
 
 ## About
@@ -8,10 +6,20 @@ Content Author Tokens for Sitecore (CATS!) allows content authors to create, man
 
 For example:
 
-TODO: link to demo image(s)
+Use this token...
+
+![A sample of a CATS token in Sitecore. The identifier "Phone Underscore Number" surrounded by curly braces.](https://www.brandonbruno.com/sections/development/images/cats/token_example_01.png)
+
+... in most types of content...
+
+![A CATS token being utilized in content.](https://www.brandonbruno.com/sections/development/images/cats/token_example_01a.png)
+
+... to get this resulting content when the page is rendered:
+
+![A rendered CATS token on a web page. A phone number with dashes.](https://www.brandonbruno.com/sections/development/images/cats/token_example_02.png)
 
 * Current version: 1.0.0
-* About and Download: [Content Author Tokens for Sitecore](http://www.brandonbruno.com/TODO)
+* About and Download: [Content Author Tokens for Sitecore](http://www.brandonbruno.com/sections/development/cats.html)
 
 ## Features
 
@@ -20,12 +28,12 @@ TODO: link to demo image(s)
 * Configurable token format.
 * Admin page: sync tokens, view cache, reset cache.
 * Built-in cache.
-* Button on ribbon to display usable tokens.
+* Button on Content Editor ribbon to display available tokens.
 
 ## Requirements
 
 * .NET 4.6.1 or greater
-* Sitecore 8.2.0 or greater (tested on TODO)
+* Sitecore 8.2.0 or greater (tested on 8.2.0, 8.2.6, 9.0.1)
 
 ## Getting Started
 

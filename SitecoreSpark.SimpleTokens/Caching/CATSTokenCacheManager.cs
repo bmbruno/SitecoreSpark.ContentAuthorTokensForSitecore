@@ -44,7 +44,7 @@ namespace SitecoreSpark.CATS.Caching
                 return _tokenCache.GetString(key);
 
             // CACHE MISS: load token from Sitecore (this will degrade page rendering performance).
-            // This will almost never happen since the token source list must be loaded from cache in the first place.
+            // This will almost never happen since the token source list must be loaded from cache in the first place (the local 'key' variable).
             IEnumerable<Item> libraries = TokenService.GetAllTokenLibraries();
             IEnumerable<ContentToken> tokens = TokenService.GetTokensFromLibraries(libraries);
             ContentToken token = tokens.FirstOrDefault(u => u.Pattern.Equals(key, StringComparison.Ordinal));
@@ -81,10 +81,16 @@ namespace SitecoreSpark.CATS.Caching
             return allKeys;
         }
 
+        /// <summary>
+        /// Sets a value to cache. Will throw an exception if the cache size exceeds its configuration-defined limit.
+        /// </summary>
+        /// <param name="key">Key to store in cache.</param>
+        /// <param name="value">Value to store.</param>
         public static void SetCache(string key, string value)
         {
-            // TODO: handle cache overflow possibility?
-            // if (_tokenCache.InnerCache.RemainingSpace < System.Text.ASCIIEncoding.Unicode.GetByteCount(value))
+            if (_tokenCache.InnerCache.RemainingSpace < System.Text.ASCIIEncoding.Unicode.GetByteCount(value))
+                throw new Exception($"SetCache will overflow cache size; key: {key}; value: {value}; value size: {System.Text.ASCIIEncoding.Unicode.GetByteCount(value)}");
+
             _tokenCache.SetString(key, value);
 
         }

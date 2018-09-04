@@ -70,13 +70,13 @@ namespace SitecoreSpark.CATS.Infrastructure
                     bool validToken = true;
                     if (String.IsNullOrEmpty(pattern))
                     {
-                        Logger.Warn($"Missing pattern for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
+                        Logger.Warn($"Missing Pattern for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
                         validToken = false;
                     }
 
                     if (String.IsNullOrEmpty(value))
                     {
-                        Logger.Warn($"Missing output for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
+                        Logger.Warn($"Missing Output value for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
                         validToken = false;
                     }
 

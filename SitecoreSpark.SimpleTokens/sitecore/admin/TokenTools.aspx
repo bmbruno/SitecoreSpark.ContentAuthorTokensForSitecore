@@ -40,7 +40,7 @@
                             <td class="top" style="width: 50%; padding-right: 16px;">
                                 
                                 <h3>Database</h3>
-                                <p>Tokens defined in the '<%=SitecoreSpark.CATS.Infrastructure.TokenManager.GetCurrentDatabaseName() %>' database.</p>
+                                <p>Tokens defined in the '<%=SitecoreSpark.CATS.Infrastructure.TokenService.GetCurrentDatabaseName() %>' database.</p>
                                 <asp:TextBox runat="server" TextMode="MultiLine" ID="txtDatabaseTokens" ReadOnly="true" CssClass="token-detail"></asp:TextBox>
                                 
                             </td>

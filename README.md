@@ -4,9 +4,7 @@
 
 Content Author Tokens for Sitecore (CATS!) allows content authors to create, manage, and use basic token replacement in common Sitecore content fields.
 
-For example:
-
-Use this token...
+For example, use this token...
 
 ![A sample of a CATS token in Sitecore. The identifier "Phone Underscore Number" surrounded by curly braces.](https://www.brandonbruno.com/sections/development/images/cats/token_example_01.png)
 
@@ -17,6 +15,7 @@ Use this token...
 ... to get this resulting content when the page is rendered:
 
 ![A rendered CATS token on a web page. A phone number with dashes.](https://www.brandonbruno.com/sections/development/images/cats/token_example_02.png)
+
 
 * Current version: 1.0.0
 * About and Download: [Content Author Tokens for Sitecore](http://www.brandonbruno.com/sections/development/cats.html)

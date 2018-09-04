@@ -94,11 +94,11 @@ If you require additional token libraries (for example, under the Content node i
 	* This tells CATS where to find tokens
 	* All libraries must be added here; CATS will not recursively load libraries-in-libraries
 
-To view a list of available tokens, content authors can click "View Tokens" under the Presentation tab on the Content Editor ribbon
+To view a list of available tokens, content authors can click "View Tokens" under the Presentation tab on the Content Editor ribbon.
 
 ### Syncing Tokens to Cache ###
 
-For performance reasons, all tokens are stored in and loaded from cache during page rendering. Cache management is mostly hands-off, but here are a few things to keep in mind:
+For performance reasons, all tokens are stored in cache and loaded from cache during page rendering. Cache management is mostly hands-off, but here are a few things to keep in mind:
 
 * Cache is automatically rebuilt/updated during the following events:
 	* Sitecore initialization
@@ -114,9 +114,9 @@ An admin page - `TokenTools.aspx` - allows you to view cache status, clear token
 
 ## Other Notes
 
-* Tokens are case sensitive
-* Tokens have built-in field validation to ensure Patterns are unique across the entire Sitecore instance
-* Info, warnings, and errors are written to standard Sitecore logs; all logs are prepended with "[CATS]"
+* Tokens are case sensitive.
+* Tokens have built-in field validation to ensure Patterns are unique across the entire Sitecore instance.
+* Info, warnings, and errors are written to standard Sitecore logs; all logs are prepended with "[CATS]".
 
 ## Upcoming Features
 

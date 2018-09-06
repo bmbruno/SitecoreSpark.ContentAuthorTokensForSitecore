@@ -22,9 +22,10 @@ namespace SitecoreSpark.CATS.Infrastructure
         {
             Database tokenDB = Database.GetDatabase(GetCurrentDatabaseName());
             List<Item> libraries = new List<Item>();
+            Item configItem = GetConfigurationItem();
 
             // Default library
-            Item defaultLibrary = tokenDB.GetItem(Constants.CATS_Default_Library_ID);
+            Item defaultLibrary = configItem.Children.FirstOrDefault(u => u.TemplateID == new ID(Constants.CATS_TokenLibrary_Template_ID));
 
             if (defaultLibrary == null)
                 throw new Exception($"No library item found with ID: {Constants.CATS_Default_Library_ID}");
@@ -32,7 +33,6 @@ namespace SitecoreSpark.CATS.Infrastructure
             libraries.Add(defaultLibrary);
 
             // Check for additional libraries
-            Item configItem = GetConfigurationItem();
             string[] libraryItems = configItem.GetTreelistValuesRaw("Libraries");
             
             foreach (string itemID in libraryItems)

@@ -28,7 +28,7 @@ namespace SitecoreSpark.CATS.Infrastructure
             Item defaultLibrary = configItem.Children.FirstOrDefault(u => u.TemplateID == new ID(Constants.CATS_TokenLibrary_Template_ID));
 
             if (defaultLibrary == null)
-                throw new Exception($"No library item found with ID: {Constants.CATS_Default_Library_ID}");
+                throw new Exception($"No library item found under default CATS configuration item ({Constants.CATS_Configuration_Item_ID}).");
 
             libraries.Add(defaultLibrary);
 
@@ -108,7 +108,7 @@ namespace SitecoreSpark.CATS.Infrastructure
             Item configItem = Sitecore.Data.Database.GetDatabase(GetCurrentDatabaseName()).GetItem(Constants.CATS_Configuration_Item_ID);
 
             if (configItem == null)
-                throw new Exception($"No configuration item found with ID: {Constants.CATS_Default_Library_ID}. Please re-install the CATS module.");
+                throw new Exception($"No configuration item found with ID: {Constants.CATS_Configuration_Item_ID}. Please re-install the CATS module.");
 
             return configItem;
         }

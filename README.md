@@ -54,7 +54,9 @@ The following settings are available:
  * `SitecoreSpark.CATS.CacheSize` - Size of token cache (default is 10MB)
  * `SitecoreSpark.CATS.DefaultDatabase` - Default content database (default is "master"); change this if you don't edit content in "master"
 
- **Note**: The `CacheSize` setting is particularly important. Tokens must be stored in cache in order to render, so be sure not to zero this out.
+ **Note on CachSize**: The `CacheSize` setting is particularly important. Tokens must be stored in cache in order to render, so be sure not to zero this out.
+ 
+ **Note on Start/End Tags:** Do not use the traditional .NET escape character "\\" in your token start/end tag definition.
 
  #### 3. Verify the Installation ####
 

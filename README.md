@@ -76,7 +76,8 @@ The following settings are available:
 1. Add a new Token item under `/sitecore/system/Modules/Content Author Tokens/Token Library`
 2. Set the Pattern field (whatever you want content authors to use)
 3. Set the Output field (whatever you want to replace the token with during page rendering)
-4. Publish (to ensure tokens are synced to cache)
+4. Publish (to ensure tokens are synced to cache); alternatively, use the TokenTools.aspx admin page to update cache
+5. Tokens are ready for use in content
 
 ### Token Libraries ###
 
@@ -115,11 +116,12 @@ An admin page - `TokenTools.aspx` - allows you to view cache status, clear token
 * Tokens are case sensitive.
 * Tokens have built-in field validation to ensure Patterns are unique across the entire Sitecore instance.
 * Info, warnings, and errors are written to standard Sitecore logs; all logs are prepended with "[CATS]".
+* CATS adds a few extra tokens to cache for internal use; these tokens will NOT be accounted for on the TokenTools.aspx page.
 
 ## Upcoming Features
 
 * Glass Mapper 4 and 5 compatibility
-* Optimizations related to publishing process
+* Additional ways to sync tokens into cache
 * "View Tokens" button for Experience Editor
 
 ## Contact the Author

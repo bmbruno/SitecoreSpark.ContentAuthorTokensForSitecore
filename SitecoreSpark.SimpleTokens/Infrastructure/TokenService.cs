@@ -67,32 +67,21 @@ namespace SitecoreSpark.CATS.Infrastructure
                     string pattern = token["Pattern"];
                     string value = token["Output"];
 
-                    bool validToken = true;
+                    if (onlyUserTokens && pattern.StartsWith("_CATS_"))
+                        continue;
+
                     if (String.IsNullOrEmpty(pattern))
-                    {
                         Logger.Warn($"Missing Pattern for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
-                        validToken = false;
-                    }
 
                     if (String.IsNullOrEmpty(value))
-                    {
                         Logger.Warn($"Missing Output value for token item {token.ID}; will not be cached or rendered.", typeof(TokenService));
-                        validToken = false;
-                    }
 
-                    if (validToken)
+                    tokens.Add(new ContentToken()
                     {
-                        if (onlyUserTokens && pattern.StartsWith("_CATS_"))
-                            continue;
-
-                        tokens.Add(new ContentToken()
-                        {
-                            ItemID = token.ID.Guid,
-                            Pattern = pattern,
-                            Output = value
-                        });
-                        
-                    }
+                        ItemID = token.ID.Guid,
+                        Pattern = pattern,
+                        Output = value
+                    });
                 }
             }
 

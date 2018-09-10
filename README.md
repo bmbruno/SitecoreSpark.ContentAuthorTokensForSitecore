@@ -125,6 +125,7 @@ An admin page - `TokenTools.aspx` - allows you to view cache status, clear token
 * Glass Mapper 4 and 5 compatibility
 * Additional ways to sync tokens into cache
 * "View Tokens" button for Experience Editor
+* Additional token types: compiled tokens, rich text tokens
 
 ## Contact the Author
 

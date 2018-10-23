@@ -37,7 +37,7 @@ For example, use this token...
 
 #### 1. Installation ####
 
-CATS is installed via a Sitecore package zip file. Install the package in your content management (CM) environment.
+CATS is installed via a Sitecore package zip file. Install the package in your content management (CM) environments and content delivery environments (CD).
 
 #### 2. Configuration ####
 

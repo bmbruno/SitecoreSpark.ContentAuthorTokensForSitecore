@@ -7,7 +7,7 @@ DB: core
 SharedFields:
 - ID: "d47ed548-84d5-4622-9886-5cc164727507"
   Hint: Icon
-  Value: "http://simpletoken.local/temp/iconcache/apps/32x32/magic-cube.png"
+  Value: "/temp/iconcache/apps/32x32/magic-cube.png"
 - ID: "dbbf9ee3-c30e-4456-a81f-ed8c2e8df91b"
   Hint: Click
   Value: "cats:tokenlist"

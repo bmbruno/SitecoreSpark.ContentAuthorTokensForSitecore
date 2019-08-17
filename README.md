@@ -16,7 +16,7 @@ For example, use this token...
 
 ![A rendered CATS token on a web page. A phone number with dashes.](https://www.brandonbruno.com/sections/development/images/cats/token_example_02.png)
 
-* Current version: 1.0.0
+* Current version: 1.5.0
 * About and Download: [Content Author Tokens for Sitecore](http://www.brandonbruno.com/sections/development/cats.html)
 
 ## Features
@@ -31,7 +31,7 @@ For example, use this token...
 ## Requirements
 
 * .NET 4.6.1 or greater
-* Sitecore 8.2.0 or greater (tested on 8.2.0, 8.2.6, 9.0.1, 9.0.2)
+* Sitecore 8.2.0 or greater (tested on 8.2.0, 9.1.1, 9.2.0)
 
 ## Getting Started
 
@@ -86,6 +86,8 @@ The following settings are available:
 A token library is a folder that stores tokens. Out of the box, CATS provides a default token library:
 
 `/sitecore/System/Modules/Content Author Tokens/Token Library`
+
+Any other libraries created next to or under this node will automatically be available for content authors.
 
 If you require additional token libraries (for example, under the Content node in a multi-tenant environment):
 

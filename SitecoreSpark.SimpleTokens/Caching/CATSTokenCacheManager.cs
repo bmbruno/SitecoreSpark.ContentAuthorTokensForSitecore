@@ -121,6 +121,18 @@ namespace SitecoreSpark.CATS.Caching
                 if (_tokenCache.GetString(token.Pattern) != null)
                     Logger.Warn($"Duplicate token found! Token pattern: {token.Pattern}", typeof(CATSTokenCacheManager));
 
+                if (String.IsNullOrEmpty(token.Pattern))
+                {
+                    Logger.Warn($"Missing Pattern for token item ID {token.ItemID}; will not be cached.", typeof(TokenService));
+                    continue;
+                }
+
+                if (String.IsNullOrEmpty(token.Output))
+                {
+                    Logger.Warn($"Missing Output for token item ID {token.ItemID}; will not be cached.", typeof(TokenService));
+                    continue;
+                }
+
                 _tokenCache.SetString(token.Pattern, token.Output);
 
                 if (_tokenCache.InnerCache.Size >= _cacheMaxSize)

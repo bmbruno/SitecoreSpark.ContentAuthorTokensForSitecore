@@ -4,6 +4,8 @@
 
 * Fix: missing icon on View Token ribbon button.
 * All token libraries created under the CATS module root item will be availablle to content authors.
+* Tokens without a correct pattern will display an error message in the TokenTools.aspx admin page.
+* Tokens without correct pattern or output configuration will not be cached.
 
 ## 1.0.0
 

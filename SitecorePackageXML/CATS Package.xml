@@ -1,0 +1,173 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Content Author Tokens for Sitecore</PackageName>
+      <Author>Brandon Bruno</Author>
+      <Version>1.5.0</Version>
+      <Revision />
+      <License>
+MIT License
+
+Copyright (c) 2018-2019 Brandon Bruno
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+	  </License>
+      <Comment />
+      <Attributes />
+      <Readme>README available on GitHub:
+
+https://github.com/bmbruno/SitecoreSpark.ContentAuthorTokensForSitecore/blob/master/README.md</Readme>
+      <Publisher>Sitecore Spark / Brandon Bruno</Publisher>
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xfiles>
+      <Entries>
+        <x-item>/bin/SitecoreSpark.CATS.dll</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files - Binaries</Name>
+    </xfiles>
+    <xfiles>
+      <Entries>
+        <x-item>/App_Config/Include/SitecoreSpark/CATS/SitecoreSpark.CATS.config</x-item>
+        <x-item>/App_Config/Include/SitecoreSpark/CATS/SitecoreSpark.Settings.config</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files - Configuration</Name>
+    </xfiles>
+    <xfiles>
+      <Entries>
+        <x-item>/sitecore/admin/TokenTools.aspx</x-item>
+        <x-item>/sitecore/shell/Applications/ContentAuthorTokens/ViewTokens.aspx</x-item>
+        <x-item>/sitecore/shell/Themes/Standard/CATS.zip</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files - Sitecore Directory Files</Name>
+    </xfiles>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/templates/Content Author Tokens/{A26D9ACA-2D7F-4E1F-8403-43E66DE44A85}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Module Root/__Standard Values/{1EB52C38-A4F1-48F9-B6F2-51F59CD63F84}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Module Root/{78ABB615-9C8B-48E0-906C-CD0D141BC379}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Module Root/Configuration/{78D6DB25-0909-4FCA-9476-AC029380FFCF}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Module Root/Configuration/Libraries/{F6453F66-9E44-40D6-BEEF-8E1ACC13238A}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Token Library/__Standard Values/{189DD216-A834-40D7-964D-21183C45432C}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Token Library/{BEEE1586-D37F-4637-9798-0DFFA496E0FB}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Token/__Standard Values/{18BEDA7E-FA42-4F55-B062-1F1291C4D063}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Token/{91883B15-4F51-4219-9E71-47F90DFC1179}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Token/Data/{2832E0B9-518C-47AE-8187-AA1FD51F3280}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Token/Data/Output/{2EF0C6D3-375D-4E45-9A4A-48FE18798FAA}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Content Author Tokens/Token/Data/Pattern/{C66867BC-6A83-4A9F-B3BC-EFB82F7EA539}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms />
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Items - Templates</Name>
+    </xitems>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/system/Modules/Content Author Tokens/{B5AD5377-D589-486F-8712-30D3AAF2248B}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Content Author Tokens/Token Library/{4CB657FA-94CD-4FF1-8B80-E84CEAE189B5}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files - Module Root</Name>
+    </xitems>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>

@@ -31,7 +31,7 @@ For example, use this token...
 ## Requirements
 
 * .NET 4.6.1 or greater
-* Sitecore 8.2.0 or greater (tested on 8.2.0, 9.1.1, 9.2.0)
+* Sitecore 8.2.0 or greater (tested on 8.2.0, 9.1.1, 9.2.0, 10.0.0)
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ A token library is a folder that stores tokens. Out of the box, CATS provides a 
 
 Any other libraries created next to or under this node will automatically be available for content authors.
 
-If you require additional token libraries (for example, under the Content node in a multi-tenant environment):
+If you require additional token libraries (for example, under the `Content` node in a multi-tenant environment):
 
 1. Insert a new item based on the `Token Library` template
 	* `/sitecore/templates/Content Author Tokens/Token Library - {BEEE1586-D37F-4637-9798-0DFFA496E0FB}`
@@ -121,13 +121,6 @@ An admin page - `TokenTools.aspx` - allows you to view cache status, clear token
 * Tokens have built-in field validation to ensure Patterns are unique across the entire Sitecore instance.
 * Info, warnings, and errors are written to standard Sitecore logs; all logs are prepended with "[CATS]".
 * CATS adds a few extra tokens to cache for internal use; these tokens will NOT be accounted for on the `TokenTools.aspx` page.
-
-## Upcoming Features
-
-* Glass Mapper 4 and 5 compatibility
-* Additional ways to sync tokens into cache
-* "View Tokens" button for Experience Editor
-* Additional token types: compiled tokens, rich text tokens
 
 ## Contact the Author
 

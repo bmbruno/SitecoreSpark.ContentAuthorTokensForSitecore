@@ -160,7 +160,6 @@
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Models\ContentToken.cs" />
     <Compile Include="Processors\Pipelines\Initialize\InitCATS.cs" />
-    <Compile Include="Processors\Pipelines\Publish\RebuildTokenCache.cs" />
     <Compile Include="Processors\Pipelines\RenderField\TokenReplacer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\TokenService.cs" />

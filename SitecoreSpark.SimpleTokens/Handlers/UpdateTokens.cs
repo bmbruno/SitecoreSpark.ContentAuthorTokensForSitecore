@@ -10,12 +10,6 @@ namespace SitecoreSpark.CATS.Handlers
     {
         public void PublishEndRemote(object sender, EventArgs args)
         {
-            var sitecoreArgs = args as Sitecore.Data.Events.PublishEndRemoteEventArgs;
-            if (sitecoreArgs == null)
-                return;
-
-            Item rootItem = Factory.GetDatabase("web").GetItem(new ID(sitecoreArgs.RootItemId));
-
             try
             {
                 Caching.CATSTokenCacheManager.ClearCache();

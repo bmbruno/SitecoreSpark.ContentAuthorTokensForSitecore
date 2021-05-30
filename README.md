@@ -16,7 +16,7 @@ For example, use this token...
 
 ![A rendered CATS token on a web page. A phone number with dashes.](https://www.brandonbruno.com/sections/development/images/cats/token_example_02.png)
 
-* Current version: 1.5.0
+* Current version: 2.0.0
 * About and Download: [Content Author Tokens for Sitecore](http://www.brandonbruno.com/sections/development/cats.html)
 
 ## Features
@@ -31,7 +31,7 @@ For example, use this token...
 ## Requirements
 
 * .NET 4.6.1 or greater
-* Sitecore 8.2.0 or greater (tested on 8.2.0, 9.1.1, 9.2.0, 10.0.0)
+* Sitecore 8.2.0 or greater (tested on 8.2.0, 9.1.1, 9.2, 10, 10.1)
 
 ## Getting Started
 
@@ -69,7 +69,8 @@ The following settings are available:
 
  * `sitecore/pipelines/initialize/SitecoreSpark.CATS.Processors.Pipelines.Initialize.InitCATS`
  * `sitecore/pipelines/renderField/SitecoreSpark.CATS.Processors.Pipelines.Initialize.TokenReplacer`
- * `sitecore/pipelines/publish/SitecoreSpark.CATS.Processors.Pipelines.Initialize.RebuildTokenCache`
+ * `sitecore/events/event[publish:end] SitecoreSpark.CATS.Handlers.UpdateTokens, SitecoreSpark.CATS`
+ * `sitecore/events/event[publish:end:remote] SitecoreSpark.CATS.Handlers.UpdateTokens, SitecoreSpark.CATS`
  * `sitecore/commands/cats:tokenlist`
 
 ## Getting Started ##
@@ -79,7 +80,7 @@ The following settings are available:
 1. Add a new Token item under `/sitecore/system/Modules/Content Author Tokens/Token Library`
 2. Set the Pattern field (whatever you want content authors to use)
 3. Set the Output field (whatever you want to replace the token with during page rendering)
-4. Publish (to ensure tokens are in 'web' database and synced to cache); alternatively, use the `TokenTools.aspx` admin page to update cache
+4. Publish (to ensure tokens are in 'web' database and synced to cache)
 5. Tokens are ready for use in content
 
 ### Token Libraries ###
@@ -106,7 +107,7 @@ For performance reasons, all tokens are stored in cache and loaded from cache du
 
 * Cache is automatically rebuilt/updated during the following events:
 	* Sitecore initialization
-	* Any publish operation
+	* Publish operations (specifically the `publish:end` and `publish:end:remote` events)
 
 * Cache can be manually rebuilt/updated by using the administration tool. See the **Troubleshooting** section below for more information.
 
@@ -115,6 +116,8 @@ For performance reasons, all tokens are stored in cache and loaded from cache du
 An admin page - `TokenTools.aspx` - allows you to view cache status, clear token cache, and rebuild the token cache from scratch.
 
 `https://<your_site>/sitecore/admin/TokenTools.aspx`
+
+When rebuilding token cache from this page, tokens must be published to the `web` database first.
 
 ## Other Notes
 

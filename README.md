@@ -1,4 +1,4 @@
-# README #
+# README
 
 ## About
 
@@ -35,11 +35,11 @@ For example, use this token...
 
 ## Getting Started
 
-#### 1. Installation ####
+#### 1. Installation
 
 CATS is installed via a Sitecore package zip file. Install the package in your content management (CM) environments and content delivery environments (CD).
 
-#### 2. Configuration ####
+#### 2. Configuration
 
 After installing CATS, open the following configuration file and be sure it is configured to your preferences:
 
@@ -53,12 +53,13 @@ The following settings are available:
  * `SitecoreSpark.CATS.EndTag` - The closing tag for tokens (default is "}}")
  * `SitecoreSpark.CATS.CacheSize` - Size of token cache (default is 10MB)
  * `SitecoreSpark.CATS.DefaultDatabase` - Default content database (default is "master"); change this if you don't edit content in "master"
+ * `SitecoreSpark.CATS.PublishedDatabase` - Default database for published content (default is "web"); change this if you don't publish to "web"
 
  **Note on CachSize**: The `CacheSize` setting is particularly important. Tokens must be stored in cache in order to render, so be sure not to zero this out.
  
  **Note on Start/End Tags:** Do not use the traditional .NET escape character "\\" in your token start/end tag definition.
 
- #### 3. Verify the Installation ####
+ #### 3. Verify the Installation
 
  To verify the installation, ensure that you have the following item in your `master` database:
 
@@ -78,7 +79,7 @@ The following settings are available:
 1. Add a new Token item under `/sitecore/system/Modules/Content Author Tokens/Token Library`
 2. Set the Pattern field (whatever you want content authors to use)
 3. Set the Output field (whatever you want to replace the token with during page rendering)
-4. Publish (to ensure tokens are synced to cache); alternatively, use the `TokenTools.aspx` admin page to update cache
+4. Publish (to ensure tokens are in 'web' database and synced to cache); alternatively, use the `TokenTools.aspx` admin page to update cache
 5. Tokens are ready for use in content
 
 ### Token Libraries ###
@@ -125,7 +126,7 @@ An admin page - `TokenTools.aspx` - allows you to view cache status, clear token
 ## Contact the Author
 
 For questions / comments / issues, contact me:
-* Twitter: [@BrandonMBruno](https://www.twitter.com/BrandonMBruno) or [@SitecoreSpark](https://www.twitter.com/SitecoreSpark)
+* Twitter: [@BrandonMBruno](https://www.twitter.com/BrandonMBruno)
 * Email: bmbruno [at] gmail [dot] com
  
 ## License

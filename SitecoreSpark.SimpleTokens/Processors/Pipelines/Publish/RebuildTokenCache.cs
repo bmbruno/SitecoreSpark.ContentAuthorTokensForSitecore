@@ -1,11 +1,7 @@
 ﻿using Sitecore.Diagnostics;
-using Sitecore.Pipelines.RenderField;
 using Sitecore.Publishing.Pipelines.Publish;
 using SitecoreSpark.CATS.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SitecoreSpark.CATS.Processors.Pipelines.Publish
 {

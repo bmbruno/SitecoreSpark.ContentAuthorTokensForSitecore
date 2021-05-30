@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using SitecoreSpark.CATS.Infrastructure.Extensions;
 using Sitecore.Data;
 using SitecoreSpark.CATS.Models;
@@ -20,7 +19,9 @@ namespace SitecoreSpark.CATS.Infrastructure
         /// <returns>List of token library Items.</returns>
         public static IEnumerable<Item> GetAllTokenLibraries()
         {
-            Database tokenDB = Database.GetDatabase(GetCurrentDatabaseName());
+            string webDatabase = Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.PublishedDatabase");
+
+            Database tokenDB = Database.GetDatabase(webDatabase);
             List<Item> libraries = new List<Item>();
             Item configItem = GetConfigurationItem();
             
@@ -132,7 +133,7 @@ namespace SitecoreSpark.CATS.Infrastructure
         }
 
         /// <summary>
-        /// Gets the current context database name. If Sitecore.Context.Database or ContentDatabase is null, returns SitecoreSpark.CATS.DefaultDatabase from settings.
+        /// Gets the current context database name. If Sitecore.Context.Database or ContentDatabase is null, returns SitecoreSpark.CATS. from settings.
         /// </summary>
         public static string GetCurrentDatabaseName()
         {
@@ -143,7 +144,7 @@ namespace SitecoreSpark.CATS.Infrastructure
             else if (Sitecore.Context.ContentDatabase != null)
                 return Sitecore.Context.ContentDatabase.Name;
             else
-                return Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.DefaultDatabase");
+                return Sitecore.Configuration.Settings.GetSetting("SitecoreSpark.CATS.PublishedDatabase");
         }
     }
 }

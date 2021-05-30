@@ -154,6 +154,7 @@
     <Compile Include="Caching\CATSTokenCache.cs" />
     <Compile Include="Caching\CATSTokenCacheManager.cs" />
     <Compile Include="Commands\TokenList.cs" />
+    <Compile Include="Handlers\UpdateTokens.cs" />
     <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Infrastructure\Extensions\ItemExtensions.cs" />
     <Compile Include="Infrastructure\Logger.cs" />

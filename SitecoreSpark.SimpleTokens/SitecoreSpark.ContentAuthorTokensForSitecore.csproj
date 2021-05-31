@@ -148,6 +148,7 @@
     <Content Include="sitecore\shell\Themes\Standard\CATS.zip" />
     <None Include="Properties\PublishProfiles\Local IIS - Debug.pubxml" />
     <None Include="Properties\PublishProfiles\Local IIS - Release.pubxml" />
+    <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

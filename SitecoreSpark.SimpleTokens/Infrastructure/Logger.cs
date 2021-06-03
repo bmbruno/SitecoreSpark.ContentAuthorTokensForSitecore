@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace SitecoreSpark.CATS.Infrastructure
+﻿namespace SitecoreSpark.CATS.Infrastructure
 {
     /// <summary>
     /// Proxy logging methods for Sitecore diagnostics log.

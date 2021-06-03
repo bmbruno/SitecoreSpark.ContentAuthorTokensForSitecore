@@ -148,18 +148,19 @@
     <Content Include="sitecore\shell\Themes\Standard\CATS.zip" />
     <None Include="Properties\PublishProfiles\Local IIS - Debug.pubxml" />
     <None Include="Properties\PublishProfiles\Local IIS - Release.pubxml" />
+    <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caching\CATSTokenCache.cs" />
     <Compile Include="Caching\CATSTokenCacheManager.cs" />
     <Compile Include="Commands\TokenList.cs" />
+    <Compile Include="Handlers\UpdateTokens.cs" />
     <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Infrastructure\Extensions\ItemExtensions.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Models\ContentToken.cs" />
     <Compile Include="Processors\Pipelines\Initialize\InitCATS.cs" />
-    <Compile Include="Processors\Pipelines\Publish\RebuildTokenCache.cs" />
     <Compile Include="Processors\Pipelines\RenderField\TokenReplacer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\TokenService.cs" />

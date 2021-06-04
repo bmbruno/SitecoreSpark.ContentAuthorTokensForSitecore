@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2.0.0
+
+* Moved token cache rebuild logic to `publish:end` and `publish:end:remote` events; this better-supports CD scaling
+
 ## 1.5.0
 
 * Fix: missing icon on View Token ribbon button.

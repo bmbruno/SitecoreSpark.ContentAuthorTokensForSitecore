@@ -19,6 +19,10 @@ For example, use this token...
 * Current version: 2.0.0
 * About and Download: [Content Author Tokens for Sitecore](http://www.brandonbruno.com/sections/development/cats.html)
 
+## Maintenance Notice
+
+As of 2022, this module will be updated and maintained for all 10.x versions of Sitecore XM/XP (likely 10.3 and 10.4). This module may not support future Sitecore composable CMS products, such as Sitecore XM Cloud. Future support depends on module compatibility in future products.
+
 ## Features
 
 * Simple, text-based token replacement for common Sitecore fields (single-line text, text, rich text, image, general link).

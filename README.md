@@ -21,7 +21,9 @@ For example, use this token...
 
 ## Maintenance Notice
 
-As of 2022, this module will be updated and maintained for all 10.x versions of Sitecore XM/XP (likely 10.3 and 10.4). This module may not support future Sitecore composable CMS products, such as Sitecore XM Cloud. Future support depends on module compatibility in future products.
+As of 2022, this module will be updated and maintained for all 10.x versions of Sitecore XM/XP (likely 10.3 and 10.4). This module may not support future Sitecore composable CMS products.
+
+**Sitecore XM Cloud**: because XM Cloud does not utilize content delivery (CD) servers, CATS is _not_ compatible with XM Cloud. Do not attempt to integrate it with your XM CLoud codebase.
 
 ## Features
 
